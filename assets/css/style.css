@@ -1,0 +1,97 @@
+@font-face { font-family: Overlock; src: url('../fonts/Overlock-Regular.ttf'); }
+@font-face { font-family: Overlock; src: url('../fonts/Overlock-Italic.ttf'); font-style: italic; }
+@font-face { font-family: Overlock; src: url('../fonts/Overlock-Bold.ttf'); font-weight: bold; }
+@font-face { font-family: Overlock; src: url('../fonts/Overlock-BoldItalic.ttf'); font-style: italic; font-weight: bold; }
+@font-face { font-family: Overlock; src: url('../fonts/Overlock-Black.ttf'); font-weight: 900; }
+@font-face { font-family: Overlock; src: url('../fonts/Overlock-BlackItalic.ttf'); font-weight: 900; font-style: italic; }
+
+body {
+    background: #111 url('../img/pattern3.png') repeat;
+    color: #eee;
+    font-family: Overlock, Helvetica, Arial, Sans-Serif;
+    text-align: center;
+}
+
+a, a:active, a:visited {
+    color: #fff;
+    outline: none;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    font: 16px/24px Overlock;
+    color: #aaa;
+}
+
+h1 {
+    font: 900 30px Overlock;
+}
+
+h2 {
+    color: #DB601C;
+    font: 26px Overlock;
+    margin-top: 30px;
+}
+
+h2 small {
+    color: #EADFAB;
+    font: italic 14px Overlock;
+}
+
+#wrapper {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px 5px 5px 5px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    text-align: left;
+    width: 720px;
+}
+
+#logo {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+#menu {
+    float: right;
+    margin-top: 15px;
+}
+
+#menu li {
+    display: inline;
+}
+
+#menu a {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#revolver {
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    width: 720px;
+    height: 300px;
+    position: relative;
+}
+
+.controls {
+    line-height: 30px;
+}
+
+.controls a {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    color: #aaa;
+    padding: 2px 7px;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 black;
+}
+
+.controls a:hover {
+    background-color: #EADFAB;
+    color: black;
+    text-shadow: none;
+}

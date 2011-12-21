@@ -1,90 +1,121 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'>
+	<head>
+		<title>Revolver.js &mdash; The first slider with no assumptions about your markup.</title>
 
-  <title>johnnyfreeman/revolver @ GitHub</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+		
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.js"></script>
+	</head>
+	
+	<body>
+        <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ebf9ff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #140600; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #140600; }
-    h3 { text-align: center; color: #140600; }
-    a { color: #140600; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
-</head>
+        <div id="wrapper">
+            <ul id="menu">
+                <li><a href="index.php">Overview</a></li>
+                <li><a href="https://github.com/johnnyfreeman/revolver/zipball/master">Download</a></li>
+                <li><a href="api.php">Docs</a></li>
+                <li><a href="https://github.com/johnnyfreeman/revolver/issues">Support</a></li>
+            </ul>
 
-<body>
-  <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+            <h1 id="logo">
+                Revolver.js
+            </h1>
 
-  <div id="container">
+            <p>
+                Revolver is the first slider built with no assumptions about your markup. Simply write out the HTML/CSS for your slider, then attach Revolver's controls to your elements. It's easy!
+            </p>
 
-    <div class="download">
-      <a href="https://github.com/johnnyfreeman/revolver/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/johnnyfreeman/revolver/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
-    </div>
+            <div id="revolver">
 
-    <h1><a href="https://github.com/johnnyfreeman/revolver">revolver</a>
-      <span class="small">by <a href="https://github.com/johnnyfreeman">johnnyfreeman</a></span></h1>
+                <img class="slide" src="assets/img/1.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/5.png" alt="" />
+                <img class="slide" src="assets/img/6.png" alt="" />
 
-    <div class="description">
-      Revolver.js is an slider/rotator that makes no assumptions about your markup. Currently only compatable with jQuery, but support for Mootools and Prototype is on the roadmap! 
-    </div>
+            </div>
 
-    
+            <h2>Full list of controls <small>Go ahead, click 'em!</small></h2>
 
-    
+            <div class="controls">
+                <a class="first" href="#">first</a>
+                <a class="previous" href="#">previous</a>
+                <a class="goto" data-goto="0" href="#">0</a>
+                <a class="goto" data-goto="1" href="#">1</a>
+                <a class="goto" data-goto="2" href="#">2</a>
+                <a class="goto" data-goto="3" href="#">3</a>
+                <a class="goto" data-goto="4" href="#">4</a>
+                <a class="goto" data-goto="5" href="#">5</a>
+                <a class="next" href="#">next</a>
+                <a class="last" href="#">last</a>
+                <a class="start" href="#">start</a>
+                <a class="stop" href="#">stop</a>
+                <a class="pause" href="#">pause</a>
+                <a class="restart" href="#">restart</a>
+            </div>
+            
+            <script>
+                var $revolver = $('#revolver').revolver(),
+                    revolver  = $revolver.data('revolver'),
+                    $controls = $('.controls');
 
-    
+                console.log($controls);
 
-    
+                $controls.find('.first').click(function(e){
+                    e.preventDefault();
+                    revolver.first();
+                });
 
-    
-      <h2>Authors</h2>
-      <p>Johnny Freeman (http://johnnyfreeman.us/)
-<br/>      </p>
-    
+                $controls.find('.previous').click(function(e){
+                    e.preventDefault();
+                    revolver.previous();
+                });
 
-    
-      <h2>Contact</h2>
-      <p>Johnny Freeman
-<br/>      </p>
-    
+                $controls.find('.goto').click(function(e){
+                    e.preventDefault();
+                    revolver.goTo($(this).data('goto'));
+                });
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="https://github.com/johnnyfreeman/revolver/zipball/master">zip</a> or
-      <a href="https://github.com/johnnyfreeman/revolver/tarball/master">tar formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/johnnyfreeman/revolver</pre>
-    </p>
+                $controls.find('.next').click(function(e){
+                    e.preventDefault();
+                    revolver.next();
+                });
 
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/johnnyfreeman/revolver">johnnyfreeman/revolver</a>
-    </div>
+                $controls.find('.last').click(function(e){
+                    e.preventDefault();
+                    revolver.last();
+                });
 
-  </div>
+                $controls.find('.start').click(function(e){
+                    e.preventDefault();
+                    revolver.start();
+                });
 
-</body>
+                $controls.find('.stop').click(function(e){
+                    e.preventDefault();
+                    revolver.stop();
+                });
+
+                $controls.find('.pause').click(function(e){
+                    e.preventDefault();
+                    revolver.pause();
+                });
+
+                $controls.find('.restart').click(function(e){
+                    e.preventDefault();
+                    revolver.restart();
+                });
+            </script>
+
+            <p>As you can see, all of these controls are completely detached from the slider, and styled via the stylesheet. These could just as easily have been icons, or thumbnails, or whatever your fancy!</p>
+
+            <p>More to come&hellip;</p>
+
+        </div>
+        
+	</body>
 </html>
