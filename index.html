@@ -63,51 +63,14 @@
                     revolver  = $revolver.data('revolver'),
                     $controls = $('.controls');
 
-                console.log($controls);
-
-                $controls.find('.first').click(function(e){
+                $controls.find('.first, .previous, .next, .last, .play, .stop, .pause, .restart').click(function(e){
                     e.preventDefault();
-                    revolver.first();
-                });
-
-                $controls.find('.previous').click(function(e){
-                    e.preventDefault();
-                    revolver.previous();
+                    revolver[this.className]();
                 });
 
                 $controls.find('.goto').click(function(e){
                     e.preventDefault();
                     revolver.goTo($(this).data('goto'));
-                });
-
-                $controls.find('.next').click(function(e){
-                    e.preventDefault();
-                    revolver.next();
-                });
-
-                $controls.find('.last').click(function(e){
-                    e.preventDefault();
-                    revolver.last();
-                });
-
-                $controls.find('.play').click(function(e){
-                    e.preventDefault();
-                    revolver.play();
-                });
-
-                $controls.find('.stop').click(function(e){
-                    e.preventDefault();
-                    revolver.stop();
-                });
-
-                $controls.find('.pause').click(function(e){
-                    e.preventDefault();
-                    revolver.pause();
-                });
-
-                $controls.find('.restart').click(function(e){
-                    e.preventDefault();
-                    revolver.restart();
                 });
             </script>
 
