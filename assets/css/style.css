@@ -6,7 +6,7 @@
 @font-face { font-family: Overlock; src: url('../fonts/Overlock-BlackItalic.ttf'); font-weight: 900; font-style: italic; }
 
 body {
-    background: #111 url('../img/pattern3.png') repeat;
+    background: #222 url('../img/pattern3.png') repeat;
     color: #eee;
     font-family: Overlock, Helvetica, Arial, Sans-Serif;
     text-align: center;
@@ -43,7 +43,7 @@ h2 small {
 }
 
 #wrapper {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px 5px 5px 5px;
     margin: 30px auto;
     padding: 20px 30px;
