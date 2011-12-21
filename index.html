@@ -52,8 +52,8 @@
                 <a class="goto" data-goto="5" href="#">5</a>
                 <a class="next" href="#">next</a>
                 <a class="last" href="#">last</a>
-                <a class="start" href="#">start</a>
                 <a class="stop" href="#">stop</a>
+                <a class="play" href="#">play</a>
                 <a class="pause" href="#">pause</a>
                 <a class="restart" href="#">restart</a>
             </div>
@@ -90,9 +90,9 @@
                     revolver.last();
                 });
 
-                $controls.find('.start').click(function(e){
+                $controls.find('.play').click(function(e){
                     e.preventDefault();
-                    revolver.start();
+                    revolver.play();
                 });
 
                 $controls.find('.stop').click(function(e){
