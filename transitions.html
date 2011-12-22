@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Transitions &ndash; Revolver.js &mdash; The first slider with no assumptions about your markup.</title>
+
+        <link rel="stylesheet" href="assets/css/style.css" />
+		
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+	</head>
+	
+	<body>
+        <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+        <div id="wrapper">
+            <ul id="menu">
+                <li><a href="index.html">Overview</a></li>
+                <li class="parent"><a href="examples.html">Transitions</a></li>
+                <li><a href="https://github.com/johnnyfreeman/revolver/zipball/master">Download</a></li>
+                <li><a href="https://github.com/johnnyfreeman/revolver/issues">Support</a></li>
+            </ul>
+
+            <h1 id="logo">
+                Revolver.js
+            </h1>
+
+            <h2>Transitions</h2>
+
+            <p>
+                Here are the transitions that Revolver is cabable of&hellip; so far.
+            </p>
+
+            <h3>None</h3>
+
+            <p>The simplest transition (or lack thereof) available. Still sexy though, right? :)</p>
+
+            <div id="transition_none">
+
+                <img class="slide" src="assets/img/1.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/5.png" alt="" />
+                <img class="slide" src="assets/img/6.png" alt="" />
+
+            </div>
+            
+            <script>
+                var none = $('#transition_none').revolver({transition: {type:'none'}}).data('revolver');
+            </script>
+
+            <h3>Fade</h3>
+
+            <p>The simplest transition, or lack thereof, available.</p>
+
+            <div id="transition_fade">
+
+                <img class="slide" src="assets/img/1.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/5.png" alt="" />
+                <img class="slide" src="assets/img/6.png" alt="" />
+
+            </div>
+            
+            <script>
+                var fade = $('#transition_fade').revolver().data('revolver');
+            </script>
+
+            <h3>Slide</h3>
+
+            <p>The simplest transition, or lack thereof, available.</p>
+
+            <div id="transition_slide">
+
+                <img class="slide" src="assets/img/1.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/5.png" alt="" />
+                <img class="slide" src="assets/img/6.png" alt="" />
+
+            </div>
+            
+            <script>
+                var slide = $('#transition_slide').revolver({transition: {type:'slide'}}).data('revolver');
+            </script>
+
+        </div>
+        
+	</body>
+</html>
