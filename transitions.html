@@ -26,10 +26,6 @@
 
             <h2>Transitions</h2>
 
-            <p>
-                Here are the transitions that Revolver is cabable of&hellip; so far.
-            </p>
-
             <h3>None</h3>
 
             <p>The simplest transition (or lack thereof) available. Still sexy though, right? :)</p>
@@ -46,46 +42,52 @@
             </div>
             
             <script>
-                var none = $('#transition_none').revolver({transition: {type:'none'}}).data('revolver');
+                $('#transition_none').revolver({ transition: {type:'none'} });
             </script>
 
-            <h3>Fade</h3>
+            <pre><code>$('#transition_none').revolver({ transition: {type:'none'} });</code></pre>
 
-            <p>The simplest transition, or lack thereof, available.</p>
+            <h3>Fade <small>(default)</small></h3>
+
+            <p>This transition simply fades out the previous slide and fades in the current slide. Note that all slides must be position or "stacked" on top of each other for this to work properly.</p>
 
             <div id="transition_fade">
 
-                <img class="slide" src="assets/img/1.png" alt="" />
-                <img class="slide" src="assets/img/2.png" alt="" />
-                <img class="slide" src="assets/img/3.png" alt="" />
-                <img class="slide" src="assets/img/4.png" alt="" />
                 <img class="slide" src="assets/img/5.png" alt="" />
                 <img class="slide" src="assets/img/6.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+                <img class="slide" src="assets/img/1.png" alt="" />
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
 
             </div>
             
             <script>
-                var fade = $('#transition_fade').revolver().data('revolver');
+                $('#transition_fade').revolver();
             </script>
+
+            <pre><code>$('#transition_fade').revolver();</code></pre>
 
             <h3>Slide</h3>
 
-            <p>The simplest transition, or lack thereof, available.</p>
+            <p>This transition will slide out the previous slide and slide in the current slide, giving the effect that the slides are back to back. Note that all slides must be positioned back to back, with no spaces in between any of the slides, for this to work properly.</p>
 
             <div id="transition_slide">
 
-                <img class="slide" src="assets/img/1.png" alt="" />
-                <img class="slide" src="assets/img/2.png" alt="" />
-                <img class="slide" src="assets/img/3.png" alt="" />
-                <img class="slide" src="assets/img/4.png" alt="" />
-                <img class="slide" src="assets/img/5.png" alt="" />
                 <img class="slide" src="assets/img/6.png" alt="" />
+                <img class="slide" src="assets/img/5.png" alt="" />
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+                <img class="slide" src="assets/img/1.png" alt="" />
 
             </div>
             
             <script>
-                var slide = $('#transition_slide').revolver({transition: {type:'slide'}}).data('revolver');
+                $('#transition_slide').revolver({transition: {type:'slide'}});
             </script>
+            
+            <pre><code>$('#transition_slide').revolver({ transition: {type:'slide'} });</code></pre>
 
         </div>
         

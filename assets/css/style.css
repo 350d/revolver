@@ -42,6 +42,38 @@ h2 small {
     font: italic 14px Overlock;
 }
 
+h3 {
+    color: #ADC54F;
+    font: 20px Overlock;
+    margin-top: 30px;
+}
+
+h3 small {
+    color: #EADFAB;
+    font: italic 14px Overlock;
+}
+
+h4 {
+    color: #ccc;
+    font: 16px Overlock;
+    margin-top: 30px;
+}
+
+h4 small {
+    color: #EADFAB;
+    font: italic 14px Overlock;
+}
+
+pre {
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 3px;
+    padding: 10px 15px;
+}
+
+code {
+    
+}
+
 #wrapper {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px 5px 5px 5px;
