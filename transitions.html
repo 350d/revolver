@@ -49,7 +49,7 @@
 
             <h3>Fade <small>(default)</small></h3>
 
-            <p>This transition simply fades out the previous slide and fades in the current slide. Note that all slides must be position or "stacked" on top of each other for this to work properly.</p>
+            <p>This transition simply fades out the previous slide and fades in the current slide. Please note that all slides must be position or "stacked" on top of each other for this to work properly.</p>
 
             <div id="transition_fade">
 
@@ -70,7 +70,7 @@
 
             <h3>Slide</h3>
 
-            <p>This transition will slide out the previous slide and slide in the current slide, giving the effect that the slides are back to back. Note that all slides must be positioned back to back, with no spaces in between any of the slides, for this to work properly.</p>
+            <p>This transition will slide out the previous slide and slide in the current slide, giving the effect that the slides are back to back. Please note that all slides must be positioned back to back, with no spaces in between any of the slides, for this to work properly.</p>
 
             <div id="transition_slide">
 
@@ -88,6 +88,27 @@
             </script>
             
             <pre><code>$('#transition_slide').revolver({ transition: {type:'slide'} });</code></pre>
+
+            <h3>Half Slide</h3>
+
+            <p>This transition behaves almost identically to the Slide transition, except that it slides out the previous slide only half way. Please note that the slide container must have overflow:hidden, and each slide must be positioned or "stacked" on top of each other.</p>
+
+            <div id="transition_halfslide">
+
+                <img class="slide" src="assets/img/4.png" alt="" />
+                <img class="slide" src="assets/img/1.png" alt="" />
+                <img class="slide" src="assets/img/6.png" alt="" />
+                <img class="slide" src="assets/img/5.png" alt="" />
+                <img class="slide" src="assets/img/3.png" alt="" />
+                <img class="slide" src="assets/img/2.png" alt="" />
+
+            </div>
+            
+            <script>
+                $('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });
+            </script>
+            
+            <pre><code>$('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });</code></pre>
 
         </div>
         
