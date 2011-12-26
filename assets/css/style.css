@@ -128,11 +128,23 @@ code {
     margin: 4px 10px;
 }
 
-#revolver {
+.revolver.container {
     box-shadow: 0 0 5px rgba(0,0,0,0.8);
     width: 720px;
     height: 300px;
     position: relative;
+}
+
+.revolver.container.stack .slide {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.revolver.container.inline .slide {
+    margin: 0;
+    padding: 0;
+    position: static;
 }
 
 .controls {
@@ -152,10 +164,4 @@ code {
     background-color: #EADFAB;
     color: black;
     text-shadow: none;
-}
-
-/* TRANSITION EXAMPLES */
-#transition_none, #transition_fade, #transition_slide {
-    height: 300px;
-    width: 720px;
 }
