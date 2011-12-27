@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="assets/css/style.css" />
 		
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+        <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
 	</head>
 	
 	<body>
@@ -72,7 +72,7 @@
 
             <p>This transition will slide out the previous slide and slide in the current slide, giving the effect that the slides are back to back. Please note that all slides must be positioned back to back, with no spaces in between any of the slides, for this to work properly.</p>
 
-            <div id="transition_slide" class="revolver container inline">
+            <div id="transition_slide" class="revolver container stack">
 
                 <img class="slide" src="assets/img/6.png" alt="" />
                 <img class="slide" src="assets/img/5.png" alt="" />
@@ -109,6 +109,39 @@
             </script>
             
             <pre><code>$('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });</code></pre>
+
+            <h3>Reveal</h3>
+
+            <p>Reveal might look like the Slide transition at first... but look closer. This transition will "remove the curtain" from the next slide. Check it out!</p>
+
+            <div id="transition_reveal" class="revolver container stack reveal">
+
+                <div class="slide">
+                    <img src="assets/img/3.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="assets/img/1.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="assets/img/6.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="assets/img/4.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="assets/img/2.png" alt="" />
+                </div>
+                <div class="slide">
+                    <img src="assets/img/5.png" alt="" />
+                </div>
+
+            </div>
+            
+            <script>
+                $('#transition_reveal').revolver({ transition: {type:'reveal'} });
+            </script>
+            
+            <pre><code>$('#transition_reveal').revolver({ transition: {type:'reveal'} });</code></pre>
 
         </div>
         
