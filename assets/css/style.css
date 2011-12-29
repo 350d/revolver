@@ -7,7 +7,7 @@
 
 body {
     background: #222 url('../img/pattern3.png') repeat;
-    color: #eee;
+    color: #ccc;
     font-family: Overlock, Helvetica, Arial, Sans-Serif;
     text-align: center;
 }
@@ -24,7 +24,7 @@ a:hover {
 
 p {
     font: 16px/24px Overlock;
-    color: #aaa;
+    color: #ccc;
 }
 
 h1 {
@@ -74,6 +74,10 @@ code {
     
 }
 
+ul, ol {
+    color: #ccc;
+}
+
 #wrapper {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px 5px 5px 5px;
@@ -90,7 +94,7 @@ code {
 
 #menu {
     float: right;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 #menu li {
@@ -98,8 +102,23 @@ code {
 }
 
 #menu a {
+    background-color: #151515;
+    border-radius: 3px;
+    color: #eee;
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 6px;
+    padding: 2px 8px;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+#menu a.download {
+    background-color: #ADC54F;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
 #menu .parent {
@@ -126,6 +145,25 @@ code {
 
 #menu .submenu a {
     margin: 4px 10px;
+}
+
+table {
+    border-left: 1px solid #282828;
+    border-top: 1px solid #282828;
+    width: 100%;
+}
+
+table td, table th {
+    border-bottom: 1px solid #282828;
+    border-right: 1px solid #282828;
+    color: #ccc;
+    padding: 10px 15px;
+    vertical-align: top;
+}
+
+table thead th {
+    background-color: #1D1D1D;
+    color: #FFFFFF;
 }
 
 /* revolver examples */
