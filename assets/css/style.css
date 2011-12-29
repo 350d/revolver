@@ -7,7 +7,7 @@
 
 body {
     background: #222 url('../img/pattern3.png') repeat;
-    color: #ccc;
+    color: #bbb;
     font-family: Overlock, Helvetica, Arial, Sans-Serif;
     text-align: center;
 }
@@ -24,7 +24,7 @@ a:hover {
 
 p {
     font: 16px/24px Overlock;
-    color: #ccc;
+    color: #bbb;
 }
 
 h1 {
@@ -54,7 +54,7 @@ h3 small {
 }
 
 h4 {
-    color: #ccc;
+    color: #bbb;
     font: 16px Overlock;
     margin-top: 30px;
 }
@@ -75,7 +75,7 @@ code {
 }
 
 ul, ol {
-    color: #ccc;
+    color: #bbb;
 }
 
 #wrapper {
@@ -156,7 +156,7 @@ table {
 table td, table th {
     border-bottom: 1px solid #282828;
     border-right: 1px solid #282828;
-    color: #ccc;
+    color: #bbb;
     padding: 10px 15px;
     vertical-align: top;
 }
