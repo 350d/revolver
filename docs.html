@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Revolver.js Docs &mdash; The first slider with no assumptions about your markup.</title>
+
+        <link rel="stylesheet" href="assets/css/style.css" />
+		
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+	</head>
+	
+	<body>
+        <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+        <div id="wrapper">
+            <ul id="menu">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="examples.html">Examples</a></li>
+                <li><a href="docs.html">Docs</a></li>
+                <li><a href="https://github.com/johnnyfreeman/revolver/issues">Support</a></li>
+                <li><a class="download" href="https://github.com/johnnyfreeman/revolver/zipball/master">Download</a></li>
+            </ul>
+
+            <h1 id="logo">
+                Revolver.js
+            </h1>
+
+            <h2>Documentation</h2>
+
+            <ul>
+                <li>
+                    <a href="#installation">Installation</a>
+                </li>
+                <li>
+                    <a href="#options">Custom Options</a>
+                </li>
+                <li>
+                    <a href="#methods">API Methods</a>
+                </li>
+                <li>
+                    <a href="#events">Custom Events</a>
+                </li>
+            </ul>
+
+            <h3 id="installation">Installation</h3>
+
+            <p>
+                <ol>
+                    <li>Click the download link at the top of this page to get the latest stable release.</li>
+                    <li>Unzip and upload to your webserver.</li>
+                    <li>Start using it! That's it. :)</li>
+                </ol>
+            </p>
+
+            <h3 id="options">Custom Options</h3>
+
+            <p>
+                Custom options are used to customize one instance of Revolver without it affecting another. They should be passed directly to the revolver plugin.
+            </p>
+
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>autoPlay</td>
+                        <td><em>boolean</em></td>
+                        <td>true</td>
+                        <td>Set to <em>false</em> if you do not want Revolver to begin playing immediately.</td>
+                    </tr>
+                    <tr>
+                        <td>rotationSpeed</td>
+                        <td><em>Integer</em></td>
+                        <td>4000</td>
+                        <td>Number of milliseconds to stay on each slide before transitioning to the next.</td>
+                    </tr>
+                    <tr>
+                        <td>transition</td>
+                        <td><em>object</em></td>
+                        <td>-</td>
+                        <td>An object with options specific to transitions only.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/child.png" alt=""> speed</td>
+                        <td><em>Integer</em></td>
+                        <td>1000</td>
+                        <td>Number of milliseconds the transition should last.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/child.png" alt=""> type</td>
+                        <td><em>String</em></td>
+                        <td>"fade"</td>
+                        <td>The type of transition to use for all transitions. See <a href="#">here</a> for the full list of transitions.</td>
+                    </tr>
+                    <tr>
+                        <td><img src="assets/img/child.png" alt=""> direction</td>
+                        <td><em>String</em></td>
+                        <td>"left"</td>
+                        <td>The direction the transition should take. Can be set to "up", "down", "left", or "right".</td>
+                    </tr>
+                    <tr>
+                        <td>sliderClass</td>
+                        <td><em>string</em></td>
+                        <td>"slide"</td>
+                        <td>The class name that Revolver uses to determine the wrapper elements for each slide.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="methods">API Methods</h3>
+
+            <p>
+                These methods are how you will build your controls for the slider.
+            </p>
+
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>first()</td>
+                        <td>The direction the transition should take. Can be set to "up", "down", "left", or "right".</td>
+                    </tr>
+                    <tr>
+                        <td>goTo(slide)</td>
+                        <td>The class name that Revolver uses to determine the wrapper elements for each slide.</td>
+                    </tr>
+                    <tr>
+                        <td>last()</td>
+                        <td>The class name that Revolver uses to determine the wrapper elements for each slide.</td>
+                    </tr>
+                    <tr>
+                        <td>next()</td>
+                        <td>The class name that Revolver uses to determine the wrapper elements for each slide.</td>
+                    </tr>
+                    <tr>
+                        <td>pause()</td>
+                        <td>Number of milliseconds to stay on each slide before transitioning to the next.</td>
+                    </tr>
+                    <tr>
+                        <td>play()</td>
+                        <td>Set to <em>false</em> if you do not want Revolver to begin playing immediately.</td>
+                    </tr>
+                    <tr>
+                        <td>previous()</td>
+                        <td>The class name that Revolver uses to determine the wrapper elements for each slide.</td>
+                    </tr>
+                    <tr>
+                        <td>reset()</td>
+                        <td>Number of milliseconds the transition should last.</td>
+                    </tr>
+                    <tr>
+                        <td>restart()</td>
+                        <td>The type of transition to use for all transitions.</td>
+                    </tr>
+                    <tr>
+                        <td>stop()</td>
+                        <td>An object with options specific to transitions only.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 id="events">Custom Events</h3>
+
+            <p>Coming soon...</p>
+
+        </div>
+        
+	</body>
+</html>
