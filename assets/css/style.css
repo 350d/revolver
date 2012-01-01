@@ -27,14 +27,19 @@ p {
     color: #bbb;
 }
 
+h1, h2, h3, h4 {
+    margin-bottom: 0;
+}
+
 h1 {
     font: 900 30px Overlock;
+    margin-top: 40px;
 }
 
 h2 {
     color: #DB601C;
     font: 26px Overlock;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 h2 small {
@@ -45,7 +50,7 @@ h2 small {
 h3 {
     color: #ADC54F;
     font: 20px Overlock;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 h3 small {
@@ -54,9 +59,9 @@ h3 small {
 }
 
 h4 {
-    color: #bbb;
-    font: 16px Overlock;
-    margin-top: 30px;
+    color: #fff;
+    font: 18px Overlock;
+    margin-top: 40px;
 }
 
 h4 small {
@@ -214,4 +219,24 @@ table thead th {
     background-color: #EADFAB;
     color: black;
     text-shadow: none;
+}
+
+.top {
+    border-bottom: 1px dashed #333333;
+    margin-top: 40px;
+    position: relative;
+}
+
+.top a {
+    background-color: #1A1A1A;
+    bottom: -8px;
+    color: #777777;
+    font-size: 12px;
+    padding-left: 6px;
+    position: absolute;
+    right: 0;
+}
+
+.hidden {
+    display: none;
 }

@@ -33,12 +33,50 @@
                 </li>
                 <li>
                     <a href="#options">Custom Options</a>
+
+                    <ul>
+                        <li><a href="#autoplay">autoPlay</a></li>
+                        <li><a href="#rotationSpeed">rotationSpeed</a></li>
+                        <li>
+                            <a href="#transition">transition</a>
+                            <ul>
+                                <li><a href="#transition_direction">direction</a></li>
+                                <li><a href="#transition_easing">easing</a></li>
+                                <li><a href="#transition_speed">speed</a></li>
+                                <li><a href="#transition_type">type</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#sliderClass">sliderClass</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#methods">API Methods</a>
+
+                    <ul>
+                        <li><a href="#first">first</a></li>
+                        <li><a href="#goTo">goTo</a></li>
+                        <li><a href="#last">last</a></li>
+                        <li><a href="#next">next</a></li>
+                        <li><a href="#pause">pause</a></li>
+                        <li><a href="#play">play</a></li>
+                        <li><a href="#previous">previous</a></li>
+                        <li><a href="#reset">reset</a></li>
+                        <li><a href="#restart">restart</a></li>
+                        <li><a href="#stop">stop</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#events">Custom Events</a>
+
+                    <ul>
+                        <li><a href="#onPause">onPause</a></li>
+                        <li><a href="#onPlay">onPlay</a></li>
+                        <li><a href="#onReady">onReady</a></li>
+                        <li><a href="#onRestart">onRestart</a></li>
+                        <li><a href="#onStop">onStop</a></li>
+                        <li><a href="#onTransitionStart">onTransitionStart</a></li>
+                        <li><a href="#onTransitionComplete">onTransitionComplete</a></li>
+                    </ul>
                 </li>
             </ul>
 
@@ -52,71 +90,119 @@
                 </ol>
             </p>
 
+            <div class="top"><a href="#">Back to top</a></div>
+
             <h3 id="options">Custom Options</h3>
 
             <p>
-                Custom options are used to customize one instance of Revolver without it affecting another. They should be passed directly to the revolver plugin.
+                Custom options are used to customize one instance of Revolver without it affecting another. They should be passed directly to the revolver plugin. 
             </p>
 
-            <table cellpadding="0" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Option</th>
-                        <th>Type</th>
-                        <th>Default</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>autoPlay</td>
-                        <td><em>boolean</em></td>
-                        <td>true</td>
-                        <td>Set to <em>false</em> if you do not want Revolver to begin playing immediately.</td>
-                    </tr>
-                    <tr>
-                        <td>rotationSpeed</td>
-                        <td><em>Integer</em></td>
-                        <td>4000</td>
-                        <td>Number of milliseconds to stay on each slide before transitioning to the next.</td>
-                    </tr>
-                    <tr>
-                        <td>transition</td>
-                        <td><em>object</em></td>
-                        <td>-</td>
-                        <td>An object with options specific to transitions only.</td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/img/child.png" alt=""> speed</td>
-                        <td><em>Integer</em></td>
-                        <td>1000</td>
-                        <td>Number of milliseconds the transition should last.</td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/img/child.png" alt=""> type</td>
-                        <td><em>String</em></td>
-                        <td>"fade"</td>
-                        <td>The type of transition to use for all transitions. See <a href="examples.html#transitions">here</a> for the full list of transitions.</td>
-                    </tr>
-                    <tr>
-                        <td><img src="assets/img/child.png" alt=""> direction</td>
-                        <td><em>String</em></td>
-                        <td>"left"</td>
-                        <td>The direction the transition should take. Can be set to "up", "down", "left", or "right".</td>
-                    </tr>
-                    <tr>
-                        <td>sliderClass</td>
-                        <td><em>string</em></td>
-                        <td>"slide"</td>
-                        <td>The class name that Revolver uses to determine the wrapper elements for each slide.</td>
-                    </tr>
-                </tbody>
-            </table>
+            <p>
+                Here's a quick example with all options so you can copy and paste into your project:
+            </p>
+            
+            <pre><code>$('#my_slider').revolver({
+    rotationSpeed:      4000,
+    autoPlay:           true,
+    transition: {
+        direction:      'left',
+        easing:         'swing',
+        speed:          500,
+        type:           'fade'
+    },
+    slideClass:         'slide'
+});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="autoPlay">autoPlay: true <small>Boolean</small></h4>
+
+            <p>Set to <em>false</em> if you do not want Revolver to begin playing immediately.</p>
+            
+            <pre><code>// turn off autoPlay
+$('#my_slider').revolver({autoPlay: false});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="rotationSpeed">rotationSpeed: 4000 <small>Integer</small></h4>
+
+            <p>Number of milliseconds to stay on each slide before transitioning to the next.</p>
+            
+            <pre><code>// speed up the slider to 1 second per slide
+$('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="transition">transition <small>Object</small></h4>
+
+            <p>The transition option is just a namespace for the options that are specific to the transition itself.</p>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="transition_direction">transition.direction: "left" <small>String</small></h4>
+
+            <p>The direction the transition should take. Can be set to "up", "down", "left", or "right".</p>
+            
+            <pre><code>// let's slide up
+$('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="transition_easing">transition.easing: "swing" <small>String</small></h4>
+
+            <p>By default, there are only two easing options available that's included in the jquery library: "swing" and "linear". To get more, go get the <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery easing plugin</a> and include it before Revolver.</p>
+            
+            <pre><code>// let's slide up
+$('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="transition_easing">transition.speed: 500 <small>Integer</small></h4>
+
+            <p>Number of milliseconds the transition (animation) should last.</p>
+            
+            <pre><code>// speed up the animation to 300 ms
+$('#my_slider').revolver({transition: {speed: 300}});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="transition_type">transition.type: "fade" <small>String</small></h4>
+
+            <p>The type of transition to use for all transitions. See <a href="examples.html#transitions">here</a> for the full list of transitions.</p>
+            
+            <pre><code>// use the "slide" transition
+$('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
+
+
+            <h4 id="sliderClass">sliderClass: "slide" <small>String</small></h4>
+
+            <p>Since Revolver doesn't assume every child element in the container is a slide, it needs to know which elements are, in fact, a slide. </p>
+            
+            <pre><code>&lt;div id="top_news">
+    &lt;h2 class="headline">How to make pure awesomeness with Revolver.js&lt;/h2>
+    &lt;h2 class="headline">How to take your javascript skills to the next level&lt;/h2>
+    &lt;h2 class="headline">Embrace prototypes, they're awesome!&lt;/h2>
+&lt;/div>
+
+// use a custom class for my slides
+$('#top_news').revolver({sliderClass: 'headline');</code></pre>
+
+            <div class="top"><a href="#">Back to top</a></div>
 
             <h3 id="methods">API Methods</h3>
 
             <p>
-                These methods are how you will build your controls for the slider.
+                These methods are how you will build the controls for the slider. Most of them allow you to temporarily change the transition options (like if you had each slide going left by default and wanted it to slide right when going back).
             </p>
 
             <table cellpadding="0" cellspacing="0">
@@ -127,52 +213,95 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>first()</td>
-                        <td>Transition immediately to the first slide.</td>
+                    <tr id="first">
+                        <td>first(options)</td>
+                        <td>Transition immediately to the first slide, optionally passing temporary transition options.</td>
                     </tr>
-                    <tr>
-                        <td>goTo(slide)</td>
-                        <td>Transition immediately to any given slide.</td>
+                    <tr id="goTo">
+                        <td>goTo(slide, options)</td>
+                        <td>Transition immediately to any given slide, optionally passing temporary transition options.</td>
                     </tr>
-                    <tr>
-                        <td>last()</td>
-                        <td>Transition immediately to the last slide.</td>
+                    <tr id="last">
+                        <td>last(options)</td>
+                        <td>Transition immediately to the last slide, optionally passing temporary transition options.</td>
                     </tr>
-                    <tr>
-                        <td>next()</td>
-                        <td>Transition immediately to the next slide.</td>
+                    <tr id="next">
+                        <td>next(options)</td>
+                        <td>Transition immediately to the next slide, optionally passing temporary transition options.</td>
                     </tr>
-                    <tr>
+                    <tr id="pause">
                         <td>pause()</td>
                         <td>Stops the slider but remembers it's position.</td>
                     </tr>
-                    <tr>
-                        <td>play()</td>
-                        <td>Creates a loop to transition to the next slide and a given interval.</td>
+                    <tr id="play">
+                        <td>play(options)</td>
+                        <td>Creates a loop to transition to the next slide and a given interval. You can also pass temporary transition options to the <em>first</em> transition.</td>
                     </tr>
-                    <tr>
-                        <td>previous()</td>
-                        <td>Transition immediately to the previous slide.</td>
+                    <tr id="previous">
+                        <td>previous(options)</td>
+                        <td>Transition immediately to the previous slide, optionally passing temporary transition options.</td>
                     </tr>
-                    <tr>
+                    <tr id="reset">
                         <td>reset()</td>
                         <td>Ques up the first slide as the next one without forcing the transition.</td>
                     </tr>
-                    <tr>
-                        <td>restart()</td>
-                        <td>The equivalent to stop() and play() consecutively.</td>
+                    <tr id="restart">
+                        <td>restart(options)</td>
+                        <td>The equivalent to stop() and play() consecutively. You can also pass temporary transition options.</td>
                     </tr>
-                    <tr>
+                    <tr id="stop">
                         <td>stop()</td>
                         <td>Stops the slider from transitioning to the next slide, and resets the slider.</td>
                     </tr>
                 </tbody>
             </table>
 
+            <div class="top"><a href="#">Back to top</a></div>
+
             <h3 id="events">Custom Events</h3>
 
-            <p>Coming soon...</p>
+            <p>Revolver's custom events allow you to "hook" into certains parts of the script and add your own functionality. You add a custom event handler the same way you declare custom options, just pass it to the revolver plugin.</p>
+
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Gets triggered...</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="onPause">
+                        <td>onPause</td>
+                        <td>...when the pause() api method is run.</td>
+                    </tr>
+                    <tr id="onPlay">
+                        <td>onPlay</td>
+                        <td>...when the play() api method is run.</td>
+                    </tr>
+                    <tr id="onReady">
+                        <td>onReady</td>
+                        <td>...when Revolver is fully setup and ready to go.</td>
+                    </tr>
+                    <tr id="onRestart">
+                        <td>onRestart</td>
+                        <td>...when the restart() api method is run.</td>
+                    </tr>
+                    <tr id="onStop">
+                        <td>onStop</td>
+                        <td>...when the stop() api method is run.</td>
+                    </tr>
+                    <tr id="onTransitionStart">
+                        <td>onTransitionStart</td>
+                        <td>...when a transition begins to animate.</td>
+                    </tr>
+                    <tr id="onTransitionComplete">
+                        <td>onTransitionComplete</td>
+                        <td>...when a transition's animation has ended.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="top"><a href="#">Back to top</a></div>
 
         </div>
         
