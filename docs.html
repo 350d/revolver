@@ -211,8 +211,32 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <h3 id="methods">API Methods</h3>
 
             <p>
-                These methods are how you will build the controls for the slider. Most of them allow you to temporarily change the transition options (like if you had each slide going left by default and wanted it to slide right when going back).
+                These methods allow you to build the controls for your slider. You must call them off of the Revolver object, <em>not</em> the jQuery object. Since there is no enforced <em>standard</em> for getting and storing a plugin's object in jQuery, I decided to utilize jQuery's data method for this and bind the Revolver object to the slider container. Here's how you would get the Revolver object after calling the plugin:
             </p>
+            
+            <pre><code>$(document).ready(function(){
+
+    // first let's save our selector so jquery doesn't have to traverse the dom more than once
+    var my_slider = $('#my_slider');
+
+    // setup the slider the way you want it
+    my_slider.revolver({transition: {type: 'slide'}});
+
+    // then get and save the revolver object for later
+    var revolver = my_slider.data('revolver');
+
+    // pretty easy right?
+    // we could even shorten that up a bit to something like this...
+    var revolver = $('#my_slider').revolver({transition: {type: 'slide'}}).data('revolver');
+
+    // now you can start binding these api methods to your controls
+    // for example:
+    $('a#goto_next_slide').click(function(event){
+        event.preventDefault(); // prevents browser from following the link
+        revolver.next(); // tells revolver to change to the next slide
+    });
+
+});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -305,7 +329,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <pre><code>// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
-            
+
 
             <h3 id="events">Custom Events</h3>
 
