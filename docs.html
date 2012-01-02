@@ -95,7 +95,7 @@
             <h3 id="options">Custom Options</h3>
 
             <p>
-                Custom options are used to customize one instance of Revolver without it affecting another. They should be passed directly to the revolver plugin. 
+                You can change the default options by simply passing your own custom options as the first argument to the .revolver() plugin.
             </p>
 
             <p>
@@ -103,8 +103,8 @@
             </p>
             
             <pre><code>$('#my_slider').revolver({
-    rotationSpeed:      4000,
     autoPlay:           true,
+    rotationSpeed:      4000,
     transition: {
         direction:      'left',
         easing:         'swing',
@@ -113,6 +113,15 @@
     },
     slideClass:         'slide'
 });</code></pre>
+
+            <p>
+                Please note that this does not overwrite Revolver's defaults, the new options are simply merged with the defaults and stored in another property. You will need to declare any custom options for <em>each instance</em> of Revolver. For example, if you want to disable autoPlay for all of your sliders, you will need to do something like this:
+            </p>
+            
+            <pre><code>var my_options = { autoPlay: true };
+
+$('#slider1').revolver(my_options);
+$('#slider2').revolver(my_options);</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -235,7 +244,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
                     </tr>
                     <tr id="play">
                         <td>play(options)</td>
-                        <td>Creates a loop to transition to the next slide and a given interval. You can also pass temporary transition options to the <em>first</em> transition.</td>
+                        <td>Creates a loop to transition to the next slide and a given interval. You can also pass temporary transition options to the <em>first</em> transition in the play cycle.</td>
                     </tr>
                     <tr id="previous">
                         <td>previous(options)</td>
