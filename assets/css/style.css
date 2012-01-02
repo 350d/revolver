@@ -75,8 +75,9 @@ h4 small {
 }
 
 pre {
-    background-color: #000;
-    border-radius: 3px;
+    background-color: #000000;
+    border-radius: 3px 3px 3px 3px;
+    overflow-x: auto;
     padding: 10px 15px;
 }
 
