@@ -4,12 +4,14 @@
 		<title>Revolver.js Examples &mdash; The first slider with no assumptions about your markup.</title>
 
         <link rel="stylesheet" href="assets/css/style.css" />
-		
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-		<script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+        <link rel="stylesheet" href="assets/css/prettify.css" />
+        
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+        <script src="assets/js/prettify.js"></script>
 	</head>
 	
-	<body>
+	<body onload="prettyPrint()">
         <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
         <div id="wrapper">
@@ -46,7 +48,7 @@
                 $('#transition_none').revolver({ transition: {type:'none'} });
             </script>
 
-            <pre><code>$('#transition_none').revolver({ transition: {type:'none'} });</code></pre>
+            <pre><code class="prettyprint">$('#transition_none').revolver({ transition: {type:'none'} });</code></pre>
 
             <h3>Fade <small>(default)</small></h3>
 
@@ -67,7 +69,7 @@
                 $('#transition_fade').revolver();
             </script>
 
-            <pre><code>$('#transition_fade').revolver();</code></pre>
+            <pre><code class="prettyprint">$('#transition_fade').revolver();</code></pre>
 
             <h3>Slide</h3>
 
@@ -88,7 +90,7 @@
                 $('#transition_slide').revolver({transition: {type:'slide'}});
             </script>
             
-            <pre><code>$('#transition_slide').revolver({ transition: {type:'slide'} });</code></pre>
+            <pre><code class="prettyprint">$('#transition_slide').revolver({ transition: {type:'slide'} });</code></pre>
 
             <!--<h3>Half Slide</h3>
 
@@ -109,7 +111,7 @@
                 $('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });
             </script>
             
-            <pre><code>$('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });</code></pre> -->
+            <pre><code class="prettyprint">$('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });</code></pre> -->
 
             <h3>Reveal</h3>
 
@@ -142,7 +144,7 @@
                 $('#transition_reveal').revolver({ transition: {type:'reveal'} });
             </script>
             
-            <pre><code>$('#transition_reveal').revolver({ transition: {type:'reveal'} });</code></pre>
+            <pre><code class="prettyprint">$('#transition_reveal').revolver({ transition: {type:'reveal'} });</code></pre>
 
         </div>
         

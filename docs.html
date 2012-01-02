@@ -4,12 +4,14 @@
 		<title>Revolver.js Docs &mdash; The first slider with no assumptions about your markup.</title>
 
         <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/prettify.css" />
 		
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+        <script src="assets/js/prettify.js"></script>
 	</head>
 	
-	<body>
+	<body onload="prettyPrint()">
         <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
         <div id="wrapper">
@@ -102,7 +104,7 @@
                 Here's a quick example with all options so you can copy and paste into your project:
             </p>
             
-            <pre><code>$('#my_slider').revolver({
+            <pre><code class="prettyprint">$('#my_slider').revolver({
     autoPlay:           true,
     rotationSpeed:      4000,
     transition: {
@@ -118,7 +120,7 @@
                 Please note that this does not overwrite Revolver's defaults, the new options are simply merged with the defaults and stored in another property. You will need to declare any custom options for <em>each instance</em> of Revolver. For example, if you want to disable autoPlay for all of your sliders, you will need to do something like this:
             </p>
             
-            <pre><code>var my_options = { autoPlay: true };
+            <pre><code class="prettyprint">var my_options = { autoPlay: true };
 
 $('#slider1').revolver(my_options);
 $('#slider2').revolver(my_options);</code></pre>
@@ -130,7 +132,7 @@ $('#slider2').revolver(my_options);</code></pre>
 
             <p>Set to <em>false</em> if you do not want Revolver to begin playing immediately.</p>
             
-            <pre><code>// turn off autoPlay
+            <pre><code class="prettyprint">// turn off autoPlay
 $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -140,7 +142,7 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <p>Number of milliseconds to stay on each slide before transitioning to the next.</p>
             
-            <pre><code>// speed up the slider to 1 second per slide
+            <pre><code class="prettyprint">// speed up the slider to 1 second per slide
 $('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -157,7 +159,7 @@ $('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
 
             <p>The direction the transition should take. Can be set to "up", "down", "left", or "right".</p>
             
-            <pre><code>// let's slide up
+            <pre><code class="prettyprint">// let's slide up
 $('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -167,7 +169,7 @@ $('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code>
 
             <p>By default, there are only two easing methods available that's included in the jquery library: "swing" and "linear". To get more, go get the <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery easing plugin</a>, include it in your document before Revolver, then replace "swing" with the name of the new easing method.</p>
             
-            <pre><code>// let's slide up
+            <pre><code class="prettyprint">// let's slide up
 $('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -177,7 +179,7 @@ $('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code>
 
             <p>Number of milliseconds the transition (animation) should last.</p>
             
-            <pre><code>// speed up the animation to 300 ms
+            <pre><code class="prettyprint">// speed up the animation to 300 ms
 $('#my_slider').revolver({transition: {speed: 300}});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -187,7 +189,7 @@ $('#my_slider').revolver({transition: {speed: 300}});</code></pre>
 
             <p>The type of transition to use for all transitions. See <a href="examples.html#transitions">here</a> for the full list of transitions.</p>
             
-            <pre><code>// use the "slide" transition
+            <pre><code class="prettyprint">// use the "slide" transition
 $('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -197,13 +199,13 @@ $('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
 
             <p>Since Revolver doesn't assume every child element in the container is a slide, it needs to know which elements are, in fact, a slide. </p>
             
-            <pre><code>&lt;div id="top_news">
+            <pre><code class="prettyprint">&lt;div id="top_news">
     &lt;h2 class="headline">How to make pure awesomeness with Revolver.js&lt;/h2>
     &lt;h2 class="headline">How to take your javascript skills to the next level&lt;/h2>
     &lt;h2 class="headline">Embrace prototypes, they're awesome!&lt;/h2>
-&lt;/div>
-
-// use a custom class for my slides
+&lt;/div></code></pre>
+            
+            <pre><code class="prettyprint">// use a custom class for my slides
 $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
@@ -214,7 +216,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
                 These methods allow you to build the controls for your slider. You must call them off of the Revolver object, <em>not</em> the jQuery object. Since there is no enforced <em>standard</em> for getting and storing a plugin's object in jQuery, I decided to utilize jQuery's data method for this and bind the Revolver object to the slider container. Here's how you would get the Revolver object after calling the plugin:
             </p>
             
-            <pre><code>$(document).ready(function(){
+            <pre><code class="prettyprint">$(document).ready(function(){
 
     // first let's save our selector so jquery doesn't have to traverse the dom more than once
     var my_slider = $('#my_slider');
@@ -245,7 +247,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Transition immediately to the first slide, optionally passing temporary transition options.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -254,7 +256,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Transition immediately to any given slide, optionally passing temporary transition options.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -263,7 +265,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Transition immediately to the last slide, optionally passing temporary transition options.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -272,7 +274,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Transition immediately to the next slide, optionally passing temporary transition options.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -281,7 +283,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Stops the slider but remembers it's position.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -290,7 +292,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Creates a loop to transition to the next slide and a given interval. You can also pass temporary transition options to the <em>first</em> transition in the play cycle.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -299,7 +301,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Transition immediately to the previous slide, optionally passing temporary transition options.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -308,7 +310,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Ques up the first slide as the next one without forcing the transition.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -317,7 +319,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>This is the functional equivalent to calling stop() and then play() consecutively. You can optionally pass temporary transition options through to the play() method.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
@@ -326,7 +328,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <p>Stops the slider from transitioning to the next slide, and resets the slider.</p>
             
-            <pre><code>// example coming soon</code></pre>
+            <pre><code class="prettyprint">// example coming soon</code></pre>
 
             <div class="top"><a href="#">Back to top</a></div>
 
