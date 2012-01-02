@@ -6,7 +6,7 @@
 @font-face { font-family: Overlock; src: url('../fonts/Overlock-BlackItalic.ttf'); font-weight: 900; font-style: italic; }
 
 body {
-    background: #222 url('../img/pattern3.png') repeat;
+    background: #222 url('../img/black_pattern02.jpg') repeat;
     color: #bbb;
     font-family: Overlock, Helvetica, Arial, Sans-Serif;
     text-align: center;
@@ -74,7 +74,7 @@ h4 small {
 }
 
 pre {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.4);
     border-radius: 3px;
     padding: 10px 15px;
 }
@@ -88,7 +88,7 @@ ul, ol {
 }
 
 #wrapper {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 5px 5px 5px 5px;
     margin: 30px auto;
     padding: 20px 30px;
@@ -112,9 +112,9 @@ ul, ol {
 }
 
 #menu a {
-    background-color: #151515;
+    background-color: rgba(255, 255, 255, 0.04);
     border-radius: 3px;
-    color: #eee;
+    color: #ddd;
     display: inline-block;
     margin-left: 6px;
     padding: 2px 8px;
@@ -122,12 +122,12 @@ ul, ol {
 }
 
 #menu a:hover {
-    background-color: #111;
+    background-color: rgba(255, 255, 255, 0.1);
     color: #fff;
 }
 
 #menu a.download {
-    background-color: #ADC54F;
+    background-color: #90A445;
     text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -226,19 +226,27 @@ table thead th {
 }
 
 .top {
-    border-bottom: 1px dashed #333333;
+    height: 1px;
     margin-top: 40px;
     position: relative;
 }
 
+.top hr {
+    border-color: #333;
+    border-style: none none dashed;
+    border-width: 0 0 1px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 642px;
+}
+
 .top a {
-    background-color: #1A1A1A;
-    bottom: -8px;
     color: #777777;
     font-size: 12px;
-    padding-left: 6px;
     position: absolute;
     right: 0;
+    top: 0;
 }
 
 .hidden {
