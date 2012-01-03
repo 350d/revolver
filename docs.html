@@ -198,8 +198,6 @@ $('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
             <h4 id="sliderClass">sliderClass: "slide" <small>String</small></h4>
 
             <p>Since Revolver doesn't assume every child element in the container is a slide, it needs to know which elements are, in fact, a slide. </p>
-
-            <h5>HTML</h5>
             
             <pre><code class="prettyprint">&lt;div id="top_news">
     &lt;img src="some_icon.png" alt="">
@@ -207,8 +205,6 @@ $('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
     &lt;h2 class="headline">How to take your javascript skills to the next level&lt;/h2>
     &lt;h2 class="headline">Embrace prototypes, they're awesome!&lt;/h2>
 &lt;/div></code></pre>
-
-            <h5>Javascript</h5>
             
             <pre><code class="prettyprint">// use a custom class for my slides
 $('#top_news').revolver({sliderClass: 'headline');</code></pre>
@@ -251,24 +247,24 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <h4 id="first">first(<em>options</em>)</h4>
 
             <p>Transition immediately to the first slide, optionally passing temporary transition options.</p>
-
-            <h5>HTML</h5>
             
-            <pre><code class="prettyprint">&lt;div id="my_slider">
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
     &lt;img class="slide" src="slide1.png">
     &lt;img class="slide" src="slide2.png">
     &lt;img class="slide" src="slide3.png">
 &lt;/div>
 
-&lt;a href="#" id="goto_first">Go back to the first slide (using the options set when calling the plugin)&lt;/a>
-&lt;a href="#" id="goto_first_custom">Go back to the first slide, except use the "fade" transition &lt;/a></code></pre>
-
-            <h5>Javascript</h5>
+&lt;!-- my controls -->
+&lt;a href="#" id="goto_first">Slide to first slide&lt;/a>
+&lt;a href="#" id="goto_first_custom">Fade to the first slide&lt;/a></code></pre>
             
             <pre><code class="prettyprint">$(document).ready(function(){
 
+    // setup revolver and get back the Revolver object
     var revolver = $('#my_slider').revolver({transitions: {type: 'slide'}}).data('revolver');
 
+    // setup controls
     $('#goto_first').click(function(e){
         e.preventDefault();
         revolver.first();
