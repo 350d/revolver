@@ -12,6 +12,11 @@
 	</head>
 	
 	<body onload="prettyPrint()">
+
+        <div id="warning">
+            <strong>Warning:</strong> This project is currently under <em>heavy</em> development and should not be considered stable enough for production environments. Yet!
+        </div>
+
         <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
         <div id="wrapper">
@@ -34,53 +39,51 @@
                     <a href="#installation">Installation</a>
                 </li>
                 <li>
-                    <a href="#options">Custom Options</a>
+                    <a href="#options">Options &amp; Callbacks</a>
 
                     <ul>
                         <li><a href="#autoplay">autoPlay</a></li>
+                        <li><a href="#onPause">onPause()</a></li>
+                        <li><a href="#onPlay">onPlay()</a></li>
+                        <li><a href="#onReady">onReady()</a></li>
+                        <li><a href="#onRestart">onRestart()</a></li>
+                        <li><a href="#onStop">onStop()</a></li>
                         <li><a href="#rotationSpeed">rotationSpeed</a></li>
+                        <li><a href="#slideClass">slideClass</a></li>
                         <li>
                             <a href="#transition">transition</a>
                             <ul>
                                 <li><a href="#transition_direction">direction</a></li>
                                 <li><a href="#transition_easing">easing</a></li>
+                                <li><a href="#onFinish">onFinish()</a></li>
+                                <li><a href="#onStart">onStart()</a></li>
                                 <li><a href="#transition_speed">speed</a></li>
                                 <li><a href="#transition_type">type</a></li>
                             </ul>
                         </li>
-                        <li><a href="#sliderClass">sliderClass</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#methods">API Methods</a>
 
                     <ul>
-                        <li><a href="#first">first</a></li>
-                        <li><a href="#goTo">goTo</a></li>
-                        <li><a href="#last">last</a></li>
-                        <li><a href="#next">next</a></li>
-                        <li><a href="#pause">pause</a></li>
-                        <li><a href="#play">play</a></li>
-                        <li><a href="#previous">previous</a></li>
-                        <li><a href="#reset">reset</a></li>
-                        <li><a href="#restart">restart</a></li>
-                        <li><a href="#stop">stop</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#events">Custom Events</a>
-
-                    <ul>
-                        <li><a href="#onPause">onPause</a></li>
-                        <li><a href="#onPlay">onPlay</a></li>
-                        <li><a href="#onReady">onReady</a></li>
-                        <li><a href="#onRestart">onRestart</a></li>
-                        <li><a href="#onStop">onStop</a></li>
-                        <li><a href="#onTransitionStart">onTransitionStart</a></li>
-                        <li><a href="#onTransitionComplete">onTransitionComplete</a></li>
+                        <li><a href="#first">first()</a></li>
+                        <li><a href="#goTo">goTo()</a></li>
+                        <li><a href="#last">last()</a></li>
+                        <li><a href="#next">next()</a></li>
+                        <li><a href="#pause">pause()</a></li>
+                        <li><a href="#play">play()</a></li>
+                        <li><a href="#previous">previous()</a></li>
+                        <li><a href="#reset">reset()</a></li>
+                        <li><a href="#restart">restart()</a></li>
+                        <li><a href="#stop">stop()</a></li>
                     </ul>
                 </li>
             </ul>
+
+
+
+            <!-- Installation -->
 
             <h3 id="installation">Installation</h3>
 
@@ -94,10 +97,14 @@
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
-            <h3 id="options">Custom Options</h3>
+            
+
+            <!-- Options & Callbacks -->
+
+            <h3 id="options">Options &amp; Callbacks</h3>
 
             <p>
-                You can change the default options by simply passing your own custom options as the first argument to the .revolver() plugin.
+                You can change Revolver's defaults by passing your own custom options and callbacks as the first argument to the .revolver() plugin.
             </p>
 
             <p>
@@ -105,21 +112,21 @@
             </p>
             
             <pre><code class="prettyprint">$('#my_slider').revolver({
-    autoPlay:           true,
-    onReady:            function(){},
-    onPlay:             function(){},
-    onStop:             function(){},
-    onPause:            function(){},
-    onRestart:          function(){},
-    rotationSpeed:      4000,
-    slideClass:         'slide',
+    autoPlay:           true,           // whether or not to automatically begin playing the slides
+    onReady:            function(){},   // gets called when revolver is setup and ready to go
+    onPlay:             function(){},   // gets called when the play() method is called
+    onStop:             function(){},   // gets called when the stop() method is called
+    onPause:            function(){},   // gets called when the pause() method is called
+    onRestart:          function(){},   // gets called when the restart() method is called
+    rotationSpeed:      4000,           // how long (in milliseconds) to stay on each slide before going to the next
+    slideClass:         'slide',        // this is what revolver will look for to determin what is a slide
     transition: {
-        direction:      'left',
-        easing:         'swing',
-        onStart:        function(){},
-        onFinish:       function(){},
-        speed:          500,
-        type:           'fade'
+        direction:          'left',         // which way to slide each slide. used for the 'slide' transition type only.
+        easing:             'swing',        // default easing method
+        onStart:            function(){},   // gets called when the transition animation begins
+        onFinish:           function(){},   // gets called when the animation is done
+        speed:              500,            // how long (in milliseconds) the transition should last
+        type:               'fade'          // choose between none, fade, or slide
     }
 });</code></pre>
 
@@ -134,8 +141,9 @@ $('#slider2').revolver(my_options);</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+            <!-- autoPlay -->
 
-            <h4 id="autoPlay">autoPlay: true <small>Boolean</small></h4>
+            <h4 id="autoPlay">autoPlay: <em>true</em> <small class="type">Boolean</small></h4>
 
             <p>Set to <em>false</em> if you do not want Revolver to begin playing immediately.</p>
             
@@ -144,8 +152,89 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+            <!-- onPause -->
 
-            <h4 id="rotationSpeed">rotationSpeed: 4000 <small>Integer</small></h4>
+            <h4 id="onPause">onPause: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called everytime the <a href="#pause">pause()</a> method is called.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    onPause: function() {
+        // your code here
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- onPlay -->
+
+            <h4 id="onPlay">onPlay: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called everytime the <a href="#play">play()</a> method is called.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    onPlay: function() {
+        // your code here
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- onReady -->
+
+            <h4 id="onReady">onReady: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called as soon as Revolver is completely setup and ready to go.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    onReady: function() {
+        // your code here
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- onRestart -->
+
+            <h4 id="onRestart">onRestart: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called everytime the <a href="#restart">restart()</a> method is called.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    onRestart: function() {
+        // your code here
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- onStop -->
+
+            <h4 id="onStop">onStop: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called everytime the <a href="#stop">stop()</a> method is called.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    onStop: function() {
+        // your code here
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- rotationSpeed -->
+
+            <h4 id="rotationSpeed">rotationSpeed: <em>4000</em> <small class="type">Integer</small></h4>
 
             <p>The number of milliseconds to stay on each slide before transitioning to the next.</p>
             
@@ -154,55 +243,9 @@ $('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+            <!-- slideClass -->
 
-            <h4 id="transition">transition <small>Object</small></h4>
-
-            <p>The transition option is just a namespace for the options that are specific to the transition itself.</p>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
-
-
-            <h4 id="transition_direction">transition.direction: "left" <small>String</small></h4>
-
-            <p>The direction the transition should take. Can be set to "up", "down", "left", or "right".</p>
-            
-            <pre><code class="prettyprint">// let's slide up
-$('#my_slider').revolver({transition: {type: 'slide', direction: 'up'}});</code></pre>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
-
-
-            <h4 id="transition_easing">transition.easing: "swing" <small>String</small></h4>
-
-            <p>By default, there are only two easing methods available that's included in the jquery library: "swing" and "linear". To get more, go get the <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery easing plugin</a>, include it in your document before Revolver, then replace "swing" with the name of the new easing method.</p>
-            
-            <pre><code class="prettyprint">// use linear easing instead
-$('#my_slider').revolver({transition: {easing: 'easing'}});</code></pre>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
-
-
-            <h4 id="transition_easing">transition.speed: 500 <small>Integer</small></h4>
-
-            <p>The number of milliseconds the transition (animation) should last.</p>
-            
-            <pre><code class="prettyprint">// speed up the animation to 300 ms
-$('#my_slider').revolver({transition: {speed: 300}});</code></pre>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
-
-
-            <h4 id="transition_type">transition.type: "fade" <small>String</small></h4>
-
-            <p>The type of transition to use for all transitions. See <a href="examples.html#transitions">here</a> for the full list of available transitions.</p>
-            
-            <pre><code class="prettyprint">// use the "slide" transition
-$('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
-
-
-            <h4 id="sliderClass">sliderClass: "slide" <small>String</small></h4>
+            <h4 id="slideClass">slideClass: "<em>slide</em>" <small class="type">String</small></h4>
 
             <p>Since Revolver doesn't assume every child element in the container is a slide, it needs to know which elements are, in fact, a slide. </p>
             
@@ -217,6 +260,115 @@ $('#my_slider').revolver({transition: {type: 'slide'}});</code></pre>
 $('#top_news').revolver({sliderClass: 'headline');</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition -->
+
+            <h4 id="transition">transition <small class="type">Object</small></h4>
+
+            <p>The transition option is just a namespace for the options that are specific to the transition itself.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition.direction -->
+
+            <h4 id="transition_direction">transition.direction: "<em>left</em>" <small class="type">String</small></h4>
+
+            <p>The direction the transition should take. Can be set to "up", "down", "left", or "right".</p>
+            
+            <pre><code class="prettyprint">// let's slide up
+$('#my_slider').revolver({
+    transition: {
+        type: 'slide', 
+        direction: 'up'
+    }
+});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition.easing -->
+
+            <h4 id="transition_easing">transition.easing: "<em>swing</em>" <small class="type">String</small></h4>
+
+            <p>By default, there are only two easing methods available that's included in the jquery library: "swing" and "linear". To get more, go get the <a href="http://gsgd.co.uk/sandbox/jquery/easing/">jquery easing plugin</a>, include it in your document before Revolver, then replace "swing" with the name of the new easing method.</p>
+            
+            <pre><code class="prettyprint">// use linear easing instead
+$('#my_slider').revolver({
+    transition: {
+        easing: 'linear'
+    }
+});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition.onFinish -->
+
+            <h4 id="transition_onFinish">transition.onFinish: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called when the transition's animation is done.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    transition: {
+        onFinish: function() {
+            // your code here
+        }
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition.onStart -->
+
+            <h4 id="transition_onStart">transition.onStart: <em>function(){}</em> <small class="type">Function</small></h4>
+
+            <p>This is called when the transition's animation has started.</p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({
+    transition: {
+        onStart: function() {
+            // your code here
+        }
+    }
+});</code></pre>
+
+            <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition.speed -->
+
+            <h4 id="transition_easing">transition.speed: <em>500</em> <small class="type">Integer</small></h4>
+
+            <p>The number of milliseconds the transition (animation) should last.</p>
+            
+            <pre><code class="prettyprint">// speed up the animation to 300 ms
+$('#my_slider').revolver({
+    transition: {
+        speed: 300
+    }
+});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+            <!-- transition.type -->
+
+            <h4 id="transition_type">transition.type: "<em>fade</em>" <small class="type">String</small></h4>
+
+            <p>The type of transition to use for all transitions. See <a href="examples.html#transitions">here</a> for the full list of available transitions.</p>
+            
+            <pre><code class="prettyprint">// use the "slide" transition
+$('#my_slider').revolver({
+    transition: {
+        type: 'slide'
+    }
+});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+
+            <!-- API Methods -->
 
             <h3 id="methods">API Methods</h3>
 
@@ -251,7 +403,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="first">first(<em>options</em>)</h4>
+            <h4 id="first">first(<em>options</em>) <small class="type">Function</small></h4>
 
             <p>Transition immediately to the first slide, optionally passing temporary transition options.</p>
             
@@ -287,7 +439,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="goTo">goTo(<em>i</em>, <em>options</em>)</h4>
+            <h4 id="goTo">goTo(<em>i</em>, <em>options</em>) <small class="type">Function</small></h4>
 
             <p>Transition immediately to any given slide, optionally passing temporary transition options.</p>
             
@@ -296,7 +448,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="last">last(<em>options</em>)</h4>
+            <h4 id="last">last(<em>options</em>) <small class="type">Function</small></h4>
 
             <p>Transition immediately to the last slide, optionally passing temporary transition options.</p>
             
@@ -305,7 +457,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="next">next(<em>options</em>)</h4>
+            <h4 id="next">next(<em>options</em>) <small class="type">Function</small></h4>
 
             <p>Transition immediately to the next slide, optionally passing temporary transition options.</p>
             
@@ -314,7 +466,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="pause">pause()</h4>
+            <h4 id="pause">pause() <small class="type">Function</small></h4>
 
             <p>Stops the slider but remembers it's position.</p>
             
@@ -323,7 +475,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="play">play(<em>options</em>)</h4>
+            <h4 id="play">play(<em>options</em>) <small class="type">Function</small></h4>
 
             <p>Creates a loop to transition to the next slide and a given interval. You can also pass temporary transition options to the <em>first</em> transition in the play cycle.</p>
             
@@ -332,7 +484,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="previous">previous(<em>options</em>)</h4>
+            <h4 id="previous">previous(<em>options</em>) <small class="type">Function</small></h4>
 
             <p>Transition immediately to the previous slide, optionally passing temporary transition options.</p>
             
@@ -341,7 +493,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="reset">reset()</h4>
+            <h4 id="reset">reset() <small class="type">Function</small></h4>
 
             <p>Queues up the first slide as the next one without forcing the transition.</p>
             
@@ -350,7 +502,7 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="restart">restart(<em>options</em>)</h4>
+            <h4 id="restart">restart(<em>options</em>) <small class="type">Function</small></h4>
 
             <p>This is the functional equivalent to calling stop() and then play() consecutively. You can optionally pass temporary transition options through to the play() method.</p>
             
@@ -359,59 +511,11 @@ $('#top_news').revolver({sliderClass: 'headline');</code></pre>
             <div class="top"><hr><a href="#">Back to top</a></div>
 
 
-            <h4 id="stop">stop()</h4>
+            <h4 id="stop">stop() <small class="type">Function</small></h4>
 
             <p>Stops the slider from transitioning to the next slide, and resets the slider.</p>
             
             <pre><code class="prettyprint">// example coming soon</code></pre>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
-
-
-            <h3 id="events">Custom Events</h3>
-
-            <p>Revolver's custom events allow you to "hook" into certains parts of the script and add your own functionality. You add a custom event handler the same way you declare custom options, just pass it to the revolver plugin.</p>
-
-            <table cellpadding="0" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Event</th>
-                        <th>Gets triggered...</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="onPause">
-                        <td>onPause</td>
-                        <td>...when the pause() api method is run.</td>
-                    </tr>
-                    <tr id="onPlay">
-                        <td>onPlay</td>
-                        <td>...when the play() api method is run.</td>
-                    </tr>
-                    <tr id="onReady">
-                        <td>onReady</td>
-                        <td>...when Revolver is fully setup and ready to go.</td>
-                    </tr>
-                    <tr id="onRestart">
-                        <td>onRestart</td>
-                        <td>...when the restart() api method is run.</td>
-                    </tr>
-                    <tr id="onStop">
-                        <td>onStop</td>
-                        <td>...when the stop() api method is run.</td>
-                    </tr>
-                    <tr id="onTransitionStart">
-                        <td>onTransitionStart</td>
-                        <td>...when a transition begins to animate.</td>
-                    </tr>
-                    <tr id="onTransitionComplete">
-                        <td>onTransitionComplete</td>
-                        <td>...when a transition's animation has ended.</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="top"><hr><a href="#">Back to top</a></div>
 
         </div>
         
