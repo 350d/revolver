@@ -74,6 +74,15 @@ h4 small {
     font: italic 14px Overlock;
 }
 
+h4 small.type {
+    background-color: #555555;
+    border-radius: 3px 3px 3px 3px;
+    color: #000000;
+    font: italic 12px Overlock;
+    padding: 0 5px;
+    vertical-align: 2px;
+}
+
 pre {
     background-color: #000000;
     margin-left: -30px;
@@ -82,8 +91,10 @@ pre {
     padding: 20px 30px;
 }
 
-code {
-    
+kbd {
+    background-color: #000000;
+    font-size: 14px;
+    padding: 3px 7px;
 }
 
 ul, ol {
@@ -91,10 +102,23 @@ ul, ol {
     text-shadow: -1px -1px 0 #000;
 }
 
+#warning {
+    background-color: #B72B2B;
+    border-bottom: 3px solid #801414;
+    color: white;
+    left: 0;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    text-shadow: 1px 1px 0 #801414;
+    top: 0;
+    width: 100%;
+}
+
 #wrapper {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px 5px 5px 5px;
-    margin: 30px auto;
+    margin: 60px auto 30px;
     padding: 20px 30px;
     text-align: left;
     width: 720px;
