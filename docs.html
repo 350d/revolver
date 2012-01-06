@@ -441,9 +441,37 @@ $('#my_slider').revolver({
 
             <h4 id="goTo">goTo(<em>i</em>, <em>options</em>) <small class="type">Function</small></h4>
 
-            <p>Transition immediately to any given slide, optionally passing temporary transition options.</p>
+            <p>Transition immediately to any given slide, optionally passing temporary transition options. The first argument, which is required, is the (zero based) index number of the slide. The second, completely optional argument is the transition options that you would like to overwrite while going to the slide referenced in the first argument.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my bullets -->
+&lt;ul id="bullets">
+    &lt;li>&lt;a href="#" class="goto" data-slide-index="0">1&lt;/a>&lt;/li>
+    &lt;li>&lt;a href="#" class="goto" data-slide-index="1">2&lt;/a>&lt;/li>
+&lt;/ul></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver({transitions: {type: 'slide'}}).data('revolver');
+
+    // bind click events to all .goto elements in #bullets
+    $('#bullets .goto').click(function(e){
+        e.preventDefault();
+
+        // get the index from the data-slide-index attribute
+        var i = $(this).data('slide-index');
+
+        revolver.goTo(i);
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
