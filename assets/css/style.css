@@ -6,7 +6,7 @@
 @font-face { font-family: Overlock; src: url('../fonts/Overlock-BlackItalic.ttf'); font-weight: 900; font-style: italic; }
 
 body {
-    background: #222 url('../img/black_pattern02.jpg') repeat;
+    background: #222 url('../img/black_pattern02.jpg') repeat top center;
     color: #bbb;
     font-family: Overlock, Helvetica, Arial, Sans-Serif;
     text-align: center;
