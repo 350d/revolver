@@ -23,8 +23,9 @@ a:hover {
 }
 
 p {
-    font: 16px/24px Overlock;
     color: #bbb;
+    font: 16px/24px Overlock;
+    margin-bottom: 0;
     text-shadow: -1px -1px 0 #000;
 }
 
@@ -100,6 +101,42 @@ kbd {
 ul, ol {
     color: #bbb;
     text-shadow: -1px -1px 0 #000;
+}
+
+.row:before,
+.row:after {
+    content:"";
+    display:table;
+}
+
+.row:after {
+    clear:both;
+}
+
+.row {
+    zoom:1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+.columns {
+    float: left;
+    margin-left: 30px;
+}
+
+.columns:first-child {
+    margin-left: 0;
+}
+
+.two.columns {
+    width: 345px;
+}
+
+.three.columns {
+    width: 220px;
+}
+
+img.frame {
+    border: 5px solid #fff;
+    margin-top: 20px;
 }
 
 #warning {
