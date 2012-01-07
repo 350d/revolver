@@ -257,7 +257,7 @@ $('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
 &lt;/div></code></pre>
             
             <pre><code class="prettyprint">// use a custom class for my slides
-$('#top_news').revolver({sliderClass: 'headline');</code></pre>
+$('#top_news').revolver({slideClass: 'headline');</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -479,9 +479,30 @@ $('#my_slider').revolver({
 
             <h4 id="last">last(<em>options</em>) <small class="type">Function</small></h4>
 
-            <p>Transition immediately to the last slide, optionally passing temporary transition options.</p>
+            <p>Transition immediately to the last (not previous) slide, optionally passing temporary transition options.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="goto_last">Go to the last slide&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#goto_last').click(function(e){
+        e.preventDefault();
+        revolver.last();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -490,7 +511,28 @@ $('#my_slider').revolver({
 
             <p>Transition immediately to the next slide, optionally passing temporary transition options.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="goto_next">Next&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#goto_next').click(function(e){
+        e.preventDefault();
+        revolver.next();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -499,7 +541,28 @@ $('#my_slider').revolver({
 
             <p>Stops the slider but remembers it's position.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="pause">Pause&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#pause').click(function(e){
+        e.preventDefault();
+        revolver.pause();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -508,7 +571,28 @@ $('#my_slider').revolver({
 
             <p>Creates a loop to transition to the next slide and a given interval. You can also pass temporary transition options to the <em>first</em> transition in the play cycle.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="play">Play&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#play').click(function(e){
+        e.preventDefault();
+        revolver.play();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -517,7 +601,28 @@ $('#my_slider').revolver({
 
             <p>Transition immediately to the previous slide, optionally passing temporary transition options.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="goto_previous">Previous&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#goto_previous').click(function(e){
+        e.preventDefault();
+        revolver.previous();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -526,7 +631,28 @@ $('#my_slider').revolver({
 
             <p>Queues up the first slide as the next one without forcing the transition.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="reset">Reset&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#reset').click(function(e){
+        e.preventDefault();
+        revolver.reset();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -535,7 +661,28 @@ $('#my_slider').revolver({
 
             <p>This is the functional equivalent to calling stop() and then play() consecutively. You can optionally pass temporary transition options through to the play() method.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="restart">Restart&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#restart').click(function(e){
+        e.preventDefault();
+        revolver.restart();
+    });
+
+});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -544,7 +691,28 @@ $('#my_slider').revolver({
 
             <p>Stops the slider from transitioning to the next slide, and resets the slider.</p>
             
-            <pre><code class="prettyprint">// example coming soon</code></pre>
+            <pre><code class="prettyprint">&lt;!-- my slider -->
+&lt;div id="my_slider">
+    &lt;img class="slide" src="slide1.png">
+    &lt;img class="slide" src="slide2.png">
+    &lt;img class="slide" src="slide3.png">
+&lt;/div>
+
+&lt;!-- my controls -->
+&lt;a href="#" id="stop">Stop&lt;/a></code></pre>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    var revolver = $('#my_slider').revolver().data('revolver');
+
+    // setup controls
+    $('#stop').click(function(e){
+        e.preventDefault();
+        revolver.stop();
+    });
+
+});</code></pre>
 
         </div>
         
