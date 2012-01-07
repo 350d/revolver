@@ -103,6 +103,15 @@ ul, ol {
     text-shadow: -1px -1px 0 #000;
 }
 
+footer {
+    font-size: 12px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    text-align: left;
+    text-shadow: 1px 1px 0 #000000;
+    width: 720px;
+}
+
 .row:before,
 .row:after {
     content:"";
@@ -155,7 +164,7 @@ img.frame {
 #wrapper {
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px 5px 5px 5px;
-    margin: 60px auto 30px;
+    margin: 60px auto 0;
     padding: 20px 30px;
     text-align: left;
     width: 720px;
