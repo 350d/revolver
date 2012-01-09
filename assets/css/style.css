@@ -165,6 +165,13 @@ img.frame {
     width: 73px;
 }
 
+#share .google {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: -5px;
+    width: 60px;
+}
+
 #warning {
     background-color: #B72B2B;
     border-bottom: 3px solid #801414;
