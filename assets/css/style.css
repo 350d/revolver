@@ -225,8 +225,22 @@ img.frame {
 }
 
 #menu a.download {
-    background-color: #90A445;
+    background: #abc438; /* Old browsers */
+    background: -moz-linear-gradient(top,  #abc438 0%, #90a445 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#abc438), color-stop(100%,#90a445)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #abc438 0%,#90a445 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #abc438 0%,#90a445 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #abc438 0%,#90a445 100%); /* IE10+ */
+    background: linear-gradient(top,  #abc438 0%,#90a445 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abc438', endColorstr='#90a445',GradientType=0 ); /* IE6-9 */
+
+    -webkit-box-shadow: 0 1px 0 #CFDB87 inset;
+    -moz-box-shadow: 0 1px 0 #CFDB87 inset;
+    box-shadow: 0 1px 0 #CFDB87 inset;
+
     color: #fff;
+    
+    text-shadow: -1px -1px 0 #859832;
     text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
