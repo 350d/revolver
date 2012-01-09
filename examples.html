@@ -12,6 +12,31 @@
 	</head>
 	
 	<body onload="prettyPrint()">
+
+        <!-- Load Facebook SDK -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=302770783097605";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div id="share">
+            <!-- Tweet button -->
+            <span class="twitter">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://revolverjs.com" data-via="prsjohnny" data-hashtags="revolverjs">Tweet</a>
+                <script>
+                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+                </script>
+            </span>
+
+            <!-- Get Facebook like button -->
+            <span class="facebook">
+                <div class="fb-like" data-href="http://revolverjs.com" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-colorscheme="dark"></div>
+            </span>
+        </div>
         
         <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
