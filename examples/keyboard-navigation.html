@@ -56,14 +56,14 @@
                     else if (e.keyCode === 38)
                     {
                         e.preventDefault();
-                        revolver.previous({direction:'up'});
+                        revolver.next({direction:'up'});
                     }
 
                     // down
                     else if (e.keyCode === 40)
                     {
                         e.preventDefault();
-                        revolver.next({direction:'down'});
+                        revolver.previous({direction:'down'});
                     }
                 });
             </script>
@@ -89,13 +89,15 @@ $(document).keypress(function(e)
     // up
     else if (e.keyCode === 38)
     {
-        revolver.previous({direction:'up'});
+        e.preventDefault();
+        revolver.next({direction:'up'});
     }
 
     // down
     else if (e.keyCode === 40)
     {
-        revolver.next({direction:'down'});
+        e.preventDefault();
+        revolver.previous({direction:'down'});
     }
 });</code></pre>
 
