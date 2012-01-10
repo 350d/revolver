@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Revolver.js Example #1 &mdash; A new content slider that makes no assumptions about your markup.</title>
+
+        <link rel="stylesheet" href="../assets/css/example.css" />
+        <link rel="stylesheet" href="../assets/css/prettify.css" />
+        
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
+        <script src="../assets/js/prettify.js"></script>
+	</head>
+	
+	<body onload="prettyPrint()">
+
+        <div id="wrapper">
+            <a id="go_back" href="../examples.html">&larr; <strong>Go back</strong> to the examples page</a>
+
+            <h1 id="logo">Revolver.js</h1>
+
+            <h2>Keyboard Navigation Example</h2>
+
+            <p>
+                In this example, there are no controls to click on, just a simple example to show you how easy it would be to add keyboard navigation to your slider.
+            </p>
+
+            <div id="my_slider" class="revolver container stack">
+
+                <img class="slide" src="../assets/img/1.png" alt="" />
+                <img class="slide hidden" src="../assets/img/2.png" alt="" />
+                <img class="slide hidden" src="../assets/img/3.png" alt="" />
+                <img class="slide hidden" src="../assets/img/4.png" alt="" />
+                <img class="slide hidden" src="../assets/img/5.png" alt="" />
+                <img class="slide hidden" src="../assets/img/6.png" alt="" />
+
+            </div>
+            
+            <script>
+                var revolver = $('#my_slider').revolver({transition: {type: 'slide'}}).data('revolver');
+
+                $(document).keypress(function(e)
+                {
+                    // right
+                    if (e.keyCode === 39)
+                    {
+                        revolver.next();
+                    }
+
+                    // left
+                    else if (e.keyCode === 37)
+                    {
+                        revolver.previous({direction:'right'});
+                    }
+
+                    // up
+                    else if (e.keyCode === 38)
+                    {
+                        e.preventDefault();
+                        revolver.previous({direction:'up'});
+                    }
+
+                    // down
+                    else if (e.keyCode === 40)
+                    {
+                        e.preventDefault();
+                        revolver.next({direction:'down'});
+                    }
+                });
+            </script>
+
+            <h3>Source</h3>
+
+            <pre><code class="prettyprint">var revolver = $('#my_slider').revolver({transition: {type: 'slide'}}).data('revolver');
+
+$(document).keypress(function(e)
+{
+    // right
+    if (e.keyCode === 39)
+    {
+        revolver.next();
+    }
+
+    // left
+    else if (e.keyCode === 37)
+    {
+        revolver.previous({direction:'right'});
+    }
+
+    // up
+    else if (e.keyCode === 38)
+    {
+        revolver.previous({direction:'up'});
+    }
+
+    // down
+    else if (e.keyCode === 40)
+    {
+        revolver.next({direction:'down'});
+    }
+});</code></pre>
+
+            <h3>Share This Example!</h3>
+
+            
+
+        </div>
+
+        <footer>
+            <div class="float_right">Want updates? <a href="http://twitter.com/prsjohnny">Follow me on twitter</a>.</div>
+
+            &copy; Copyright 2012. A brain child of <a href="http://twitter.com/prsjohnny">Johnny Freeman</a>.
+        </footer>
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-28171432-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+	</body>
+</html>
