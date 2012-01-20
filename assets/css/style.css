@@ -362,7 +362,7 @@ table thead th {
     left: 0;
     position: absolute;
     top: 0;
-    width: 642px;
+    width: 300px;
 }
 
 .top a {
@@ -381,14 +381,15 @@ table thead th {
     float: right;
 }
 
-@media all and (width: 554px) {
+@media all and (max-width: 600px) {
 
-    #wrapper {
-        background-color: rgba(0, 0, 0, 0.2);
-        border-radius: 5px 5px 5px 5px;
-        margin: 10px auto 0;
-        padding: 20px 30px;
+    body {
+        margin: 0;
         text-align: left;
+    }
+
+    #wrapper. footer {
+        margin: 0;
         width: 494px;
     }
 
