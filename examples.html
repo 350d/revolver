@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Revolver.js Examples &mdash; A new content slider that makes no assumptions about your markup.</title>
+        <title>Revolver.js &mdash; A new content slider that makes no assumptions about your markup.</title>
 
         <link rel="stylesheet" href="assets/css/style.css" />
         <link rel="stylesheet" href="assets/css/prettify.css" />
-        
-        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
-        <script src="assets/js/prettify.js"></script>
 	</head>
 	
 	<body onload="prettyPrint()">
@@ -50,6 +46,7 @@
                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
                   })();
                 </script>
+            </span>
         </div>
         
         <a href="https://github.com/johnnyfreeman/revolver"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
@@ -69,130 +66,72 @@
 
             <h2>Examples</h2>
 
-            <h3>None</h3>
+            <h3>Transitions</h3>
 
-            <p>The simplest transition (or lack thereof) available. Still sexy though, right? :)</p>
-
-            <div id="transition_none" class="revolver container stack">
-
-                <img class="slide" src="assets/img/1.png" alt="" />
-                <img class="slide hidden" src="assets/img/2.png" alt="" />
-                <img class="slide hidden" src="assets/img/3.png" alt="" />
-                <img class="slide hidden" src="assets/img/4.png" alt="" />
-                <img class="slide hidden" src="assets/img/5.png" alt="" />
-                <img class="slide hidden" src="assets/img/6.png" alt="" />
-
+            <div class="row">
+                <div class="three columns">
+                    <h4 class="leading">None</h4>
+                    <p>The simplest transition (or lack thereof) available. In a blink of an eye, the current slide is hidden and the next is shown.</p>
+                    <p><a href="examples/transitions/none.html">Go to Example</a></p>
+                </div>
+                <div class="three columns">
+                    <h4 class="leading">Fade</h4>
+                    <p>This transition simply fades out the previous slide and fades in the current slide. Please note that all slides must be positioned on top of each other for this to work properly.</p>
+                    <p><a href="examples/transitions/fade.html">Go to Example</a></p>
+                </div>
+                <div class="three columns">
+                    <h4 class="leading">Slide</h4>
+                    <p>This transition will slide out the previous slide and slide in the current slide, giving the effect that the slides are back to back. All slides must be positioned on top of each other for this to work properly.</p>
+                    <p><a href="examples/transitions/slide.html">Go to Example</a></p>
+                </div>
             </div>
-            
-            <script>
-                $('#transition_none').revolver({ transition: {type:'none'} });
-            </script>
 
-            <pre><code class="prettyprint">$('#transition_none').revolver({ transition: {type:'none'} });</code></pre>
-
-            <h3>Fade <small>(default)</small></h3>
-
-            <p>This transition simply fades out the previous slide and fades in the current slide. Please note that all slides must be position or "stacked" on top of each other for this to work properly.</p>
-
-            <div id="transition_fade" class="revolver container stack">
-
-                <img class="slide" src="assets/img/5.png" alt="" />
-                <img class="slide hidden" src="assets/img/6.png" alt="" />
-                <img class="slide hidden" src="assets/img/2.png" alt="" />
-                <img class="slide hidden" src="assets/img/1.png" alt="" />
-                <img class="slide hidden" src="assets/img/4.png" alt="" />
-                <img class="slide hidden" src="assets/img/3.png" alt="" />
-
+            <div class="row">
+                <div class="three columns">
+                    <h4 class="leading">Reveal</h4>
+                    <p>Reveal might look like the Slide transition at first... but look closer. This transition will "remove the curtain" from the next slide. Check it out!</p>
+                    <p><a href="examples/transitions/reveal.html">Go to Example</a></p>
+                </div>
+                <div class="three columns">
+                    <h4 class="leading">Roll your own!</h4>
+                    <p>Revolver is fully capable of being extended with your own customized transition.</p>
+                    <p>
+                        <a href="docs.html#extending_revolver">Read Documentation</a>
+                    </p>
+                </div>
+                <div class="three columns">
+                    
+                </div>
             </div>
-            
-            <script>
-                $('#transition_fade').revolver();
-            </script>
 
-            <pre><code class="prettyprint">$('#transition_fade').revolver();</code></pre>
+            <h3>Other</h3>
 
-            <h3>Slide</h3>
-
-            <p>This transition will slide out the previous slide and slide in the current slide, giving the effect that the slides are back to back. Please note that all slides must be positioned back to back, with no spaces in between any of the slides, for this to work properly.</p>
-
-            <div id="transition_slide" class="revolver container stack">
-
-                <img class="slide" src="assets/img/6.png" alt="" />
-                <img class="slide hidden" src="assets/img/5.png" alt="" />
-                <img class="slide hidden" src="assets/img/4.png" alt="" />
-                <img class="slide hidden" src="assets/img/3.png" alt="" />
-                <img class="slide hidden" src="assets/img/2.png" alt="" />
-                <img class="slide hidden" src="assets/img/1.png" alt="" />
-
+            <div class="row">
+                <div class="three columns">
+                    <h4 class="leading">A Keyboard Driven Slider</h4>
+                    <p>Use your keyboard to control your slider! Arrows control the direction of the transition.</p>
+                    <p><a href="examples/other/keyboard-navigation.html">Go to Example</a></p>
+                </div>
+                <!-- <div class="three columns">
+                    <h4 class="leading">Responsive</h4>
+                    <p>Are you seeking a mobile-first approach to your design? Check this out!</p>
+                    <p><a href="examples/other/responsive.html">Go to Example</a></p>
+                </div>
+                <div class="three columns">
+                    <h4 class="leading">Full Screen Slider</h4>
+                    <p>Part of the reason Revolver.js is so flexible is the custom callbacks that allow you to hook into the core without actually modifying the core.</p>
+                    <p><a href="examples/other/events.html">Go to Example</a></p>
+                </div> -->
             </div>
-            
-            <script>
-                $('#transition_slide').revolver({transition: {type:'slide'}});
-            </script>
-            
-            <pre><code class="prettyprint">$('#transition_slide').revolver({ transition: {type:'slide'} });</code></pre>
-
-            <!--<h3>Half Slide</h3>
-
-            <p>This transition behaves almost identically to the Slide transition, except that it slides out the previous slide only half way. Please note that the slide container must have overflow:hidden, and each slide must be positioned or "stacked" on top of each other.</p>
-
-            <div id="transition_halfslide" class="revolver container stack">
-
-                <img class="slide" src="assets/img/4.png" alt="" />
-                <img class="slide" src="assets/img/1.png" alt="" />
-                <img class="slide" src="assets/img/6.png" alt="" />
-                <img class="slide" src="assets/img/5.png" alt="" />
-                <img class="slide" src="assets/img/3.png" alt="" />
-                <img class="slide" src="assets/img/2.png" alt="" />
-
-            </div>
-            
-            <script>
-                $('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });
-            </script>
-            
-            <pre><code class="prettyprint">$('#transition_halfslide').revolver({ transition: {type:'halfSlide'} });</code></pre> -->
-
-            <h3>Reveal</h3>
-
-            <p>Reveal might look like the Slide transition at first... but look closer. This transition will "remove the curtain" from the next slide. Check it out!</p>
-
-            <div id="transition_reveal" class="revolver container stack reveal">
-
-                <div class="slide">
-                    <img src="assets/img/3.png" alt="" />
-                </div>
-                <div class="slide hidden">
-                    <img src="assets/img/1.png" alt="" />
-                </div>
-                <div class="slide hidden">
-                    <img src="assets/img/6.png" alt="" />
-                </div>
-                <div class="slide hidden">
-                    <img src="assets/img/4.png" alt="" />
-                </div>
-                <div class="slide hidden">
-                    <img src="assets/img/2.png" alt="" />
-                </div>
-                <div class="slide hidden">
-                    <img src="assets/img/5.png" alt="" />
-                </div>
-
-            </div>
-            
-            <script>
-                $('#transition_reveal').revolver({ transition: {type:'reveal'} });
-            </script>
-            
-            <pre><code class="prettyprint">$('#transition_reveal').revolver({ transition: {type:'reveal'} });</code></pre>
 
         </div>
 
         <footer>
-            <div class="float_right">Want updates? <a href="http://twitter.com/prsjohnny">Follow me on twitter</a>.</div>
+            <div class="float_right">Want to stay updated? Follow me on <a href="http://github.com/johnnyfreeman">Github</a> and <a href="http://twitter.com/prsjohnny">Twitter</a>.</div>
 
-            &copy; Copyright 2012. A brain child of <a href="http://twitter.com/prsjohnny">Johnny Freeman</a>.
+            &copy; Copyright 2012. Created by <a href="http://twitter.com/prsjohnny">Johnny Freeman</a>.
         </footer>
+        
 
         <script type="text/javascript">
 

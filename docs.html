@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
         <title>Revolver.js Documentation &mdash; A new content slider that makes no assumptions about your markup.</title>
 
         <link rel="stylesheet" href="assets/css/style.css" />
         <link rel="stylesheet" href="assets/css/prettify.css" />
-		
-		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script src="https://raw.github.com/johnnyfreeman/revolver/master/jquery.revolver.min.js"></script>
-        <script src="assets/js/prettify.js"></script>
-	</head>
-	
-	<body onload="prettyPrint()">
+    </head>
+    
+    <body onload="prettyPrint()">
 
         <!-- Load Facebook SDK -->
         <div id="fb-root"></div>
@@ -69,13 +65,33 @@
 
             <h2>Documentation</h2>
 
-            <ul>
-                <li>
-                    <a href="#installation">Installation</a>
-                </li>
-                <li>
-                    <a href="#options">Options &amp; Callbacks</a>
+            <h3>Table of Contents</h3>
 
+            <div class="row">
+                <div class="three columns">
+                    <h4 class="leading">Introduction</h4>
+                    <ul>
+                        <li>
+                            <a href="#changelog">Changelog</a>
+                        </li>
+                        <li>
+                            <a href="#road_map">Road Map</a>
+                        </li>
+                        <li>
+                            <a href="#installation">Installation</a>
+                        </li>
+                    </ul>
+
+                    <h4><a href="#getting_started">Getting Started</a></h4>
+
+                    <ul>
+                        <li><a href="#instantiation">Instantiation</a></li>
+                        <li><a href="#extending_revolver">Extending Revolver</a></li>
+                    </ul>
+                </div>
+
+                <div class="three columns">
+                    <h4 class="leading"><a href="#options">Options &amp; Callbacks</a></h4>
                     <ul>
                         <li><a href="#autoplay">autoPlay</a></li>
                         <li><a href="#onPause">onPause()</a></li>
@@ -97,9 +113,12 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#methods">API Methods</a>
+                </div>
+
+                <div class="three columns">
+                    <h4 class="leading">
+                        <a href="#methods">API Methods</a>
+                    </h4>
 
                     <ul>
                         <li><a href="#first">first()</a></li>
@@ -113,8 +132,56 @@
                         <li><a href="#restart">restart()</a></li>
                         <li><a href="#stop">stop()</a></li>
                     </ul>
-                </li>
+                </div>
+            </div>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+
+            <!-- Changelog -->
+
+            <h3 id="changelog">Changelog</h3>
+
+            <h4 class="leading">v1.0.2 <small>January 17th, 2012</small></h4>
+
+            <ul>
+                <li>Moved the default options back to the Revolver object since it is available in the global scope now. (jQuery only)</li>
+                <li>Moved the Revolver object to the global scope so it can be extended. (jQuery only)</li>
+                <li>Added functionality to store revolver instance in element storage if called via Element.revolver(). (Mootools only)</li>
+                <li>Encapsulated logic inside a closure to ensure dollar sign availability. (Mootools only)</li>
+                <li>Closed <a href="https://github.com/johnnyfreeman/revolver/issues/8">#8</a>: Fixed typo and changed the default transition type to "sine:in:out".</li>
             </ul>
+
+            <h4>v1.0.1 <small>January 9th, 2012</small></h4>
+
+            <ul>
+                <li>Added functionality to prevent a transition overlapping.</li>
+                <li>Moved default options to $.fn.revolver.defaults object to allow them to be overridden before instantiation.</li>
+            </ul>
+
+            <h4>v1.0 <small>January 7th, 2012</small></h4>
+
+            <ul>
+                <li>Public release.</li>
+            </ul>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+
+            <!-- Road Map -->
+
+            <h3 id="road_map">Road Map</h3>
+
+            <h4 class="leading">v1.1</h4>
+
+            <ol>
+                <li>Feature Request <a href="https://github.com/johnnyfreeman/revolver/issues/6">#6</a>: Ability to dynamically add and remove slides after instantiation.</li>
+                <li>Feature Request <a href="https://github.com/johnnyfreeman/revolver/issues/4">#4</a>: Change transitions to use css3 transitions first and javascript as a fallback.</li>
+            </ol>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
 
 
 
@@ -122,13 +189,64 @@
 
             <h3 id="installation">Installation</h3>
 
-            <p>
-                <ol>
-                    <li>Click the download link at the top of this page to get the latest stable release.</li>
-                    <li>Unzip and upload to your webserver.</li>
-                    <li>Start using it! That's it. :)</li>
-                </ol>
-            </p>
+            <ol>
+                <li>Click the download link at the top of this page to get the latest stable release.</li>
+                <li>Unzip and upload to your webserver.</li>
+                <li>Add <kbd>&lt;script src="path/to/jquery.revolver.min.js">&lt;/script></kbd> where ever is appropriate.</li>
+                <li>Rock and roll!</li>
+            </ol>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+
+            <!-- Getting Started -->
+
+            <h3 id="getting_started">Getting Started</h3>
+
+            <h4 id="instantiation" class="leading">Instantiation</h4>
+
+            <p>Regardless of whether you are using jQuery or Mootools version of Revolver, there are only two ways to create a new instance.</p>
+
+            <h5>Method 1</h5>
+
+            <p>The first method, and likely the most obvious, is to call it like a plugin. When using this method, the Revolver instance is stored in the element's storage for subsequent retrieval under the namespace "revolver". </p>
+            
+            <pre><code class="prettyprint">$('#my_slider').revolver({<em>options</em>});
+
+// get the instance
+var my_slider = $('#my_slider').data('revolver');</code></pre>
+
+            <p>Or, if you're super cool and want to do it all in one line&hellip;</p>
+
+            <pre><code class="prettyprint">var my_slider = $('#my_slider').revolver({<em>options</em>}).data('revolver');</code></pre>
+
+            <h5>Method 2</h5>
+
+            <p>The second and more object-oriented method is to call the Revolver object like a constructor using the <kbd>new</kbd> keyword. When using this method, the Revolver instance is immediately returned.</p>
+            
+            <pre><code class="prettyprint">// get the instance
+var my_slider = new Revolver($('#my_slider'), {<em>options</em>});
+
+// my_slider now contains the Revolver instance</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+
+            <h4 id="extending_revolver">Extending Revolver</h4>
+
+            <p>In some cases, you may need to extend (or even change) revolver in some way. Perhaps you want to create your own new transition, or maybe you need to change some of the default options... All of this is easily achievable by accessing the Revolver variable in the global scope.</p>
+            
+            <pre><code class="prettyprint">// turn off autoPlay for all subsequent instances
+Revolver.defaults.autoPlay = false;</code></pre>
+
+            <pre><code class="prettyprint">// Roll your own transition
+Revolver.transitions.my_new_fancy_pants_transition = function() {
+    // code here
+};
+
+$('#my_slider').revolver({transition: {type: 'my_new_fancy_pants_transition'}});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -139,11 +257,11 @@
             <h3 id="options">Options &amp; Callbacks</h3>
 
             <p>
-                You can change Revolver's defaults by passing your own custom options and callbacks as the first argument to the .revolver() plugin.
+                You can override Revolver's default optinos by passing your own custom options and callbacks as the first argument to the .revolver() plugin or as the second argument to the Revolver constructor.
             </p>
 
             <p>
-                Here's a quick example with all options so you can copy and paste into your project:
+                Here's a quick snippet with all defaults declared so you can copy and paste into your project:
             </p>
             
             <pre><code class="prettyprint">$('#my_slider').revolver({
@@ -163,18 +281,35 @@
         speed:              500,            // how long (in milliseconds) the transition should last
         type:               'fade'          // choose between none, fade, or slide
     }
+});
+
+// or...
+
+new Revolver($('#my_slider'), {
+    autoPlay:           true,           // whether or not to automatically begin playing the slides
+    onReady:            function(){},   // gets called when revolver is setup and ready to go
+    onPlay:             function(){},   // gets called when the play() method is called
+    onStop:             function(){},   // gets called when the stop() method is called
+    onPause:            function(){},   // gets called when the pause() method is called
+    onRestart:          function(){},   // gets called when the restart() method is called
+    rotationSpeed:      4000,           // how long (in milliseconds) to stay on each slide before going to the next
+    slideClass:         'slide',        // this is what revolver will look for to determin what is a slide
+    transition: {
+        direction:          'left',         // which way to slide each slide. used for the 'slide' transition type only.
+        easing:             'swing',        // default easing method
+        onStart:            function(){},   // gets called when the transition animation begins
+        onFinish:           function(){},   // gets called when the animation is done
+        speed:              500,            // how long (in milliseconds) the transition should last
+        type:               'fade'          // choose between none, fade, or slide
+    }
 });</code></pre>
 
             <p>
-                Please note that setting custom options does not overwrite Revolver's defaults, the new options are simply merged with the defaults and stored seperately. You will need to declare any custom options for <em>each instance</em> of Revolver. For example, if you want to disable autoPlay for all of your sliders, you will need to do something like this:
+                Please note that setting custom options does not overwrite Revolver's defaults, the new options are simply merged with the defaults and stored seperately, leaving the original defaults untouched for future use. If you want to change any of the defaults for all of your sliders, please check out the <a href="#extending_revolver">Extending Revolver</a> section.
             </p>
-            
-            <pre><code class="prettyprint">var my_options = { autoPlay: true };
-
-$('#slider1').revolver(my_options);
-$('#slider2').revolver(my_options);</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- autoPlay -->
 
@@ -186,6 +321,7 @@ $('#slider2').revolver(my_options);</code></pre>
 $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- onPause -->
 
@@ -203,6 +339,7 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- onPlay -->
 
             <h4 id="onPlay">onPlay: <em>function(){}</em> <small class="type">Function</small></h4>
@@ -218,6 +355,7 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
             <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- onReady -->
 
@@ -235,6 +373,7 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- onRestart -->
 
             <h4 id="onRestart">onRestart: <em>function(){}</em> <small class="type">Function</small></h4>
@@ -250,6 +389,7 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
             <p><strong>Note:</strong> The <kbd>this</kbd> variable is equal to the Revolver object.</p>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- onStop -->
 
@@ -267,6 +407,7 @@ $('#my_slider').revolver({autoPlay: false});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- rotationSpeed -->
 
             <h4 id="rotationSpeed">rotationSpeed: <em>4000</em> <small class="type">Integer</small></h4>
@@ -278,11 +419,14 @@ $('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- slideClass -->
 
             <h4 id="slideClass">slideClass: "<em>slide</em>" <small class="type">String</small></h4>
 
             <p>Since Revolver doesn't assume every child element in the container is a slide, it needs to know which elements are, in fact, a slide. </p>
+
+            <p>Assuming your HTML structure looks something like this:</p>
             
             <pre><code class="prettyprint">&lt;div id="top_news">
     &lt;img src="some_icon.png" alt="">
@@ -290,11 +434,14 @@ $('#my_slider').revolver({rotationSpeed: 1000});</code></pre>
     &lt;h2 class="headline">How to take your javascript skills to the next level&lt;/h2>
     &lt;h2 class="headline">Embrace prototypes, they're awesome!&lt;/h2>
 &lt;/div></code></pre>
+
+            <p>You're JS would look like this:</p>
             
             <pre><code class="prettyprint">// use a custom class for my slides
 $('#top_news').revolver({slideClass: 'headline');</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- transition -->
 
@@ -303,6 +450,7 @@ $('#top_news').revolver({slideClass: 'headline');</code></pre>
             <p>The transition option is just a namespace for the options that are specific to the transition itself.</p>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- transition.direction -->
 
@@ -320,6 +468,7 @@ $('#my_slider').revolver({
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- transition.easing -->
 
             <h4 id="transition_easing">transition.easing: "<em>swing</em>" <small class="type">String</small></h4>
@@ -334,6 +483,7 @@ $('#my_slider').revolver({
 });</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- transition.onFinish -->
 
@@ -353,6 +503,7 @@ $('#my_slider').revolver({
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- transition.onStart -->
 
             <h4 id="transition_onStart">transition.onStart: <em>function(){}</em> <small class="type">Function</small></h4>
@@ -371,6 +522,7 @@ $('#my_slider').revolver({
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
+
             <!-- transition.speed -->
 
             <h4 id="transition_easing">transition.speed: <em>500</em> <small class="type">Integer</small></h4>
@@ -385,6 +537,7 @@ $('#my_slider').revolver({
 });</code></pre>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
+
 
             <!-- transition.type -->
 
@@ -752,10 +905,15 @@ $('#my_slider').revolver({
         </div>
 
         <footer>
-            <div class="float_right">Want updates? <a href="http://twitter.com/prsjohnny">Follow me on twitter</a>.</div>
+            <div class="float_right">Want to stay updated? Follow me on <a href="http://github.com/johnnyfreeman">Github</a> and <a href="http://twitter.com/prsjohnny">Twitter</a>.</div>
 
-            &copy; Copyright 2012. A brain child of <a href="http://twitter.com/prsjohnny">Johnny Freeman</a>.
+            &copy; Copyright 2012. Created by <a href="http://twitter.com/prsjohnny">Johnny Freeman</a>.
         </footer>
+        
+        
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="assets/js/jquery.simpletabs.min.js"></script>
+        <script src="assets/js/prettify.js"></script>
 
         <script type="text/javascript">
 
@@ -771,5 +929,5 @@ $('#my_slider').revolver({
 
         </script>
         
-	</body>
+    </body>
 </html>
