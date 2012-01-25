@@ -239,10 +239,10 @@ var my_slider = new Revolver($('#my_slider'), {<em>options</em>});
             <p>In some cases, you may need to extend (or even change) revolver in some way. Perhaps you want to create your own new transition, or maybe you need to change some of the default options... All of this is easily achievable by accessing the Revolver variable in the global scope.</p>
             
             <pre><code class="prettyprint">// turn off autoPlay for all subsequent instances
-Revolver.defaults.autoPlay = false;</code></pre>
+Revolver.prototype.defaults.autoPlay = false;</code></pre>
 
             <pre><code class="prettyprint">// Roll your own transition
-Revolver.transitions.my_new_fancy_pants_transition = function() {
+Revolver.prototype.transitions.my_new_fancy_pants_transition = function() {
     // code here
 };
 
