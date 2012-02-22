@@ -71,15 +71,9 @@
                 <div class="three columns">
                     <h4 class="leading">Introduction</h4>
                     <ul>
-                        <li>
-                            <a href="#changelog">Changelog</a>
-                        </li>
-                        <li>
-                            <a href="#road_map">Road Map</a>
-                        </li>
-                        <li>
-                            <a href="#installation">Installation</a>
-                        </li>
+                        <li><a href="#changelog">Changelog</a></li>
+                        <li><a href="#road_map">Road Map</a></li>
+                        <li><a href="#installation">Installation</a></li>
                     </ul>
 
                     <h4><a href="#getting_started">Getting Started</a></h4>
@@ -87,6 +81,27 @@
                     <ul>
                         <li><a href="#instantiation">Instantiation</a></li>
                         <li><a href="#extending_revolver">Extending Revolver</a></li>
+                    </ul>
+
+                    <h4><a href="#public_properties">Public Properties</a></h4>
+
+                    <ul>
+                        <li><a href="#container">container</a></li>
+                        <li><a href="#currentSlide">currentSlide</a></li>
+                        <li><a href="#defaults">defaults</a></li>
+                        <li><a href="#dimensions">dimensions</a></li>
+                        <li><a href="#disabled">disabled</a></li>
+                        <li><a href="#intervalId">intervalId</a></li>
+                        <li><a href="#isAnimating">isAnimating</a></li>
+                        <li><a href="#iteration">iteration</a></li>
+                        <li><a href="#lastSlide">lastSlide</a></li>
+                        <li><a href="#nextSlide">nextSlide</a></li>
+                        <li><a href="#numSlides">numSlides</a></li>
+                        <li><a href="#options">options</a></li>
+                        <li><a href="#previousSlide">previousSlide</a></li>
+                        <li><a href="#slides">slides</a></li>
+                        <li><a href="#status">status</a></li>
+                        <li><a href="#version">VERSION</a></li>
                     </ul>
                 </div>
 
@@ -247,6 +262,146 @@ Revolver.prototype.transitions.my_new_fancy_pants_transition = function() {
 };
 
 $('#my_slider').revolver({transition: {type: 'my_new_fancy_pants_transition'}});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+
+            <!-- Public Properties -->
+
+            <h3 id="public_properties">Public Properties</h3>
+
+
+            <h4 id="container">container <small class="type">Object</small></h4>
+
+            <p>Holds the element that is wrapped around the slides.</p>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    $('#my_slider').revolver();
+    var my_slider = $('#my_slider').data('revolver');
+
+    // get container
+    console.log(my_slider.container); // --> returns #my_slider element
+
+});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="currentSlide">currentSlide <small class="type">Number</small></h4>
+
+            <p>Each slide has a (zero-based) index number, for example the first slide has an index of 0, the second has an index of 1, and so one. The currentSlide property returns the index number for the current slide.</p>
+            
+            <pre><code class="prettyprint">$(document).ready(function(){
+
+    // setup revolver and get back the Revolver object
+    $('#my_slider').revolver();
+    var my_slider = $('#my_slider').data('revolver');
+
+    // get current slide's index number
+    console.log(my_slider.currentSlide); // --> returns 0
+
+});</code></pre>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="defaults">defaults <small class="type">Object</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="dimensions">dimensions <small class="type">Object</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="disabled">disabled <small class="type">Boolean</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="intervalId">intervalId <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="isAnimating">isAnimating <small class="type">Boolean</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="iteration">iteration <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="lastSlide">lastSlide <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="nextSlide">nextSlide <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="numSlides">numSlides <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="options">options <small class="type">Object</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="previousSlide">previousSlide <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="slides">slides <small class="type">Array</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="status">status <small class="type">Object</small></h4>
+
+            <p>Coming soon.</p>
+
+            <div class="top"><hr><a href="#">Back to top</a></div>
+
+
+            <h4 id="version">VERSION <small class="type">Number</small></h4>
+
+            <p>Coming soon.</p>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
