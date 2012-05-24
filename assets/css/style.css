@@ -172,6 +172,7 @@ img.frame {
 
 #share .facebook {
     display: inline-block;
+    margin-left: 15px;
     width: 73px;
 }
 
@@ -180,6 +181,11 @@ img.frame {
     margin-left: 15px;
     vertical-align: -5px;
     width: 60px;
+}
+
+#share .github {
+    display: inline-block;
+    vertical-align: -5px;
 }
 
 #warning {
