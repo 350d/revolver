@@ -207,7 +207,7 @@ img.frame {
     margin: 10px auto 0;
     padding: 20px 30px;
     text-align: left;
-    width: 720px;
+    width: 660px;
 }
 
 #logo {
@@ -310,7 +310,7 @@ table thead th {
     box-shadow: 0 0 8px rgba(0,0,0,0.9);
     width: 720px;
     height: 300px;
-    margin-top: 20px;
+    margin: 20px -30px;
     overflow: hidden;
     position: relative;
 }
