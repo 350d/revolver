@@ -253,11 +253,18 @@ $ tar -zxvf johnnyfreeman-re-form-a746c6b.tar.gz</code></pre>
 
             <p>Load the jQuery plugin (or Mootools plugin) right after you load jQuery (or Mootools).</p>
 
-            <pre><code class="prettyprint">&lt;script src="js/latest-jquery.min.js"&gt;&lt;/script&gt;
+            <div class="tabbed_content">
+                <ul class="tabs">
+                    <li><a class="tab active" href="#installation-load-jquery">jQuery</a></li>
+                    <li><a class="tab" href="#installation-load-mootools">Mootools</a></li>
+                </ul>
+
+                <pre class="content" id="installation-load-jquery"><code class="prettyprint">&lt;script src="js/latest-jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="js/jquery.revolver.min.js"&gt;&lt;/script&gt;</code></pre>
 
-            <pre><code class="prettyprint">&lt;script src="js/latest-mootools.min.js"&gt;&lt;/script&gt;
+                <pre class="content" id="installation-load-mootools"><code class="prettyprint">&lt;script src="js/latest-mootools.min.js"&gt;&lt;/script&gt;
 &lt;script src="js/mootools.revolver.min.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
 
             <h4>Learn</h4>
 
@@ -282,24 +289,57 @@ $ tar -zxvf johnnyfreeman-re-form-a746c6b.tar.gz</code></pre>
             <h5>Method 1</h5>
 
             <p>The first method, and likely the most obvious, is to call it like a plugin. When using this method, the Revolver instance is stored in the element's storage for subsequent retrieval under the namespace "revolver". </p>
-            
-            <pre><code class="prettyprint">$('#my_slider').revolver({<em>options</em>});
+
+            <div class="tabbed_content">
+                <ul class="tabs">
+                    <li><a class="tab active" href="#instantiation-jquery">jQuery</a></li>
+                    <li><a class="tab" href="#instantiation-mootools">Mootools</a></li>
+                </ul>
+
+                <pre class="content" id="instantiation-jquery"><code class="prettyprint">$('#my_slider').revolver({<em>options</em>});
 
 // get the instance
 var my_slider = $('#my_slider').data('revolver');</code></pre>
 
+                <pre class="content" id="instantiation-mootools"><code class="prettyprint">$('my_slider').revolver({<em>options</em>});
+
+// get the instance
+var my_slider = $('my_slider').retrieve('revolver');</code></pre>
+            </div>
+
             <p>Or, if you're super cool and want to do it all in one line&hellip;</p>
 
-            <pre><code class="prettyprint">var my_slider = $('#my_slider').revolver({<em>options</em>}).data('revolver');</code></pre>
+            <div class="tabbed_content">
+                <ul class="tabs">
+                    <li><a class="tab active" href="#instantiation-oneline-jquery">jQuery</a></li>
+                    <li><a class="tab" href="#instantiation-oneline-mootools">Mootools</a></li>
+                </ul>
+
+                <pre class="content" id="instantiation-oneline-jquery"><code class="prettyprint">var my_slider = $('#my_slider').revolver({<em>options</em>}).data('revolver');</code></pre>
+
+                <pre class="content" id="instantiation-oneline-mootools"><code class="prettyprint">var my_slider = $('my_slider').revolver({<em>options</em>}).retrieve('revolver');</code></pre>
+            </div>
 
             <h5>Method 2</h5>
 
             <p>The second and more object-oriented method is to call the Revolver object like a constructor using the <kbd>new</kbd> keyword. When using this method, the Revolver instance is immediately returned.</p>
-            
-            <pre><code class="prettyprint">// get the instance
+
+            <div class="tabbed_content">
+                <ul class="tabs">
+                    <li><a class="tab active" href="#instantiation-oo-jquery">jQuery</a></li>
+                    <li><a class="tab" href="#instantiation-oo-mootools">Mootools</a></li>
+                </ul>
+
+                <pre class="content" id="instantiation-oo-jquery"><code class="prettyprint">// get the instance
 var my_slider = new Revolver($('#my_slider'), {<em>options</em>});
 
 // my_slider now contains the Revolver instance</code></pre>
+
+                <pre class="content" id="instantiation-oo-mootools"><code class="prettyprint">// get the instance
+var my_slider = new Revolver($('my_slider'), {<em>options</em>});
+
+// my_slider now contains the Revolver instance</code></pre>
+            </div>
 
             <div class="top"><hr><a href="#">Back to top</a></div>
 
@@ -1140,15 +1180,17 @@ $('#my_slider').revolver({
 
         <script type="text/javascript">
 
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-28171432-1']);
-          _gaq.push(['_trackPageview']);
+            $('.tabbed_content').simpleTabs();
 
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-28171432-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
 
         </script>
         

@@ -379,6 +379,35 @@ table thead th {
     top: 0;
 }
 
+.tabs {
+    margin-bottom: -13px;
+    padding-left: 0;
+    text-align: left;
+}
+
+.tabs li {
+    display: inline;
+}
+
+.tabs .tab {
+    background-color: #111111;
+    border-radius: 3px 3px 0 0;
+    color: #BBBBBB;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 0;
+    padding: 3px 8px;
+}
+
+.tabs .tab:hover {
+    text-decoration: none;
+}
+
+.tabs .tab.active {
+    background-color: #000;
+    color: #fff;
+}
+
 .hidden {
     display: none;
 }
