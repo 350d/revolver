@@ -174,11 +174,9 @@
         {
             var Revolver = this;
                 
-            this.slides.eq(this.currentSlide).fadeOut(
-                options.speed,
-                options.easing
-            );
-            this.slides.eq(this.nextSlide).fadeIn(
+            // make sure current next is under of the current slide
+            this.slides.eq(this.nextSlide).css('z-index', 9998).show();
+            this.slides.eq(this.currentSlide).css('z-index', 9999).fadeIn(
                 options.speed,
                 options.easing,
                 // after the next slide is finished fading in,
